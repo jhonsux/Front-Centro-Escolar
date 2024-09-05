@@ -29,12 +29,12 @@ export class UsuarioService {
   }
 
   crearUsuario(usuario: UsuariosModelC){
-    const token = this.authService.getToken(); // Obtén el token almacenado
-    //console.log('Token:', token); // Agrega este log para verificar el token
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.post<string>(`${this.BASE_URL}/auth/register`, usuario, { headers});
+    // const token = this.authService.getToken(); // Obtén el token almacenado
+    // //console.log('Token:', token); // Agrega este log para verificar el token
+    // const headers = new HttpHeaders({
+    //   'Authorization': `Bearer ${token}`
+    // });
+    return this.http.post<string>(`${this.BASE_URL}/auth/register`, usuario);
   }
 
   actualizarUsuario(usuario: UsuariosModel){
