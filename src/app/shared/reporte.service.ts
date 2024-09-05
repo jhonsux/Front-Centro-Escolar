@@ -9,7 +9,7 @@ import { AuthService } from './auth.service'
 export class ReporteService {
   [x: string]: any;
 
-  BASE_URL = 'http://localhost:3000'
+  BASE_URL = 'https://backend-centro-escolar-gnm-production.up.railway.app/'
   //BASE_URL = 'http://192.168.1.66:3000'
 
   constructor(private http: HttpClient, private authService: AuthService) { }
