@@ -28,18 +28,18 @@ export class CrearUsuarioComponent {
         console.log(this.usuario)
     })
 // Verificar si el token ya está expirado al cargar la aplicación
-    if (this.authService.isTokenExpired()) {
-      Swal.fire({
-        icon: 'warning',
-        title: 'Sesión expirada',
-        text: 'Tu sesión ha expirado. Por favor, inicia sesión de nuevo.',
-        confirmButtonText: 'Aceptar'
-      }).then(() => {
-        this.authService.logout();
-        // Redirigir a la página de inicio de sesión
-        window.location.href = '/login';
-      });
-    }
+    // if (this.authService.isTokenExpired()) {
+    //   Swal.fire({
+    //     icon: 'warning',
+    //     title: 'Sesión expirada',
+    //     text: 'Tu sesión ha expirado. Por favor, inicia sesión de nuevo.',
+    //     confirmButtonText: 'Aceptar'
+    //   }).then(() => {
+    //     this.authService.logout();
+    //     // Redirigir a la página de inicio de sesión
+    //     window.location.href = '/login';
+    //   });
+    // }
   }
 
   guardarUsuario() {
