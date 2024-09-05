@@ -1,0 +1,36 @@
+<div class="mb-4"></div>
+<div class="container mt-5">
+
+  <form class="row g-4 p-4 shadow rounded bg-light">
+ <h2 class="text-center">Actualizando Usuario</h2>
+    <div class="col-md-6">
+      <label class="form-label">Nombre</label>
+      <input type="text" class="form-control" required [(ngModel)]="usuario.name" name="nombre">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Apellido Paterno</label>
+      <input type="text" class="form-control" required [(ngModel)]="usuario.firstname" name="apellido_pa">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Apellido Materno</label>
+      <input type="text" class="form-control" required [(ngModel)]="usuario.lastname" name="apellido_ma">
+    </div>
+    <div class="col-md-6">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="ejem@gmail.com" [(ngModel)]="usuario.email"
+        name="email" required>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Password</label>
+      <input type="text" class="form-control" required [(ngModel)]="usuario.password" name="Password">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Roll Del Usuario</label>
+      <input type="text" class="form-control" required [(ngModel)]="usuario.user_types" name="tipo_usuario">
+    </div>
+    <div class="col-md-12 d-flex justify-content-between mt-5">
+      <button class="btn btn-outline-success" (click)="actualizar()">GUARDAR</button>
+      <button class="btn btn-outline-danger" (click)="borrarUsuario(usuario.user_id)">BORRAR</button>
+    </div>
+  </form>
+</div>

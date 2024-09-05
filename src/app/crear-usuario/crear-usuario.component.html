@@ -1,0 +1,46 @@
+<div class="mb-4"></div>
+<div class="container mt-5">
+
+  <form class="row g-4 p-4 shadow rounded bg-light" (ngSubmit)="guardarUsuario()">
+    <h2 class="mb-3 text-center">Creando Usuario</h2>
+
+    <div class="col-md-6">
+      <label for="name" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="name" placeholder="Nombre" [(ngModel)]="usuario.name" name="name"
+        required>
+    </div>
+    <div class="col-md-6">
+      <label for="firstname" class="form-label">Apellido Paterno</label>
+      <input type="text" class="form-control" id="firstname" placeholder="Paterno" [(ngModel)]="usuario.firstname"
+        name="firstname" required>
+    </div>
+    <div class="col-md-6">
+      <label for="lastname" class="form-label">Apellido Materno</label>
+      <input type="text" class="form-control" id="lastname" placeholder="Materno" [(ngModel)]="usuario.lastname"
+        name="lastname" required>
+    </div>
+    <div class="col-md-6">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="ejem@gmail.com" [(ngModel)]="usuario.email"
+        name="email" required>
+    </div>
+    <div class="col-md-4">
+      <label for="password" class="form-label">Password:</label>
+      <input type="password" class="form-control" id="password" placeholder="De 4 a 8 caracteres"
+        [(ngModel)]="usuario.password" name="password" required>
+    </div>
+    <div class="col-md-4">
+      <label for="user_types" class="form-label">Roll Del Usuario:</label>
+        <select class="form-select" id="user_types" [(ngModel)]="usuario.user_types" name="user_types" >
+          <option value="usuario">usuario</option>
+          <option value="admin">admin</option>
+        </select>
+    </div>
+    <div class="col-md-6 text-center mt-5">
+      <button type="submit" class="btn btn-outline-success">GUARDAR</button>
+    </div>
+    <div class="col-md-6 d-flex justify-content-between mt-5">
+      <button type="button" class="btn btn-outline-danger" (click)="borrarUsuario(usuario.user_id)">BORRAR</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,27 @@
+.container {
+  margin-top: 30px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.btn {
+  width: 48%;
+}
+
+.mt-5 {
+  margin-top: 3rem;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+}
+

@@ -1,0 +1,79 @@
+.container {
+  margin-top: 20px;
+
+  margin: auto;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.table-hover > tbody > tr:hover {
+  background-color: rgba(0, 123, 255, 0.2);
+}
+
+.table-bordered th, .table-bordered td {
+  border: 1px solid #dee2e6;
+}
+
+.table-success {
+  background-color: #8bbf97;
+}
+
+.table-success th {
+  color: #fbfcfc;
+  background-color: #247d3a;
+}
+
+.table-success td {
+  color: #070707;
+}
+
+.text-center {
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #060606;
+}
+
+.navbar {
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar-brand {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.navbar-nav .nav-link {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: #ffbb33;
+}
+
+.navbar-toggler {
+  border-style: outset !important;
+}
+.navbar-toggler[aria-expanded="true"] {
+  border-style: inset !important;
+}
+
+
+.btn-outline-danger {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+

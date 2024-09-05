@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="login-container">
+      <div class="login-header">
+          <img src="assets/imaje.png" alt="Bacht GNRL Logo">
+          <h5>Inicio de sesion</h5>
+      </div>
+      <form (ngSubmit)="login()">
+          <div class="form-group">
+              <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" placeholder="Correo electrónico">
+          </div>
+          <div class="mb-2"></div>
+          <div class="form-group">
+              <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" placeholder="Contraseña">
+          </div>
+
+          <div class="text-center mt-3">
+            <button type="submit" class="btn btn-success ">Iniciar Sesión</button>
+          </div>
+          <hr>
+          <div class="text-center">
+              <!-- <button type="button" class="btn btn-primary" (click)="registrar()">Crear cuenta nueva</button> -->
+          </div>
+      </form>
+  </div>
+</div>

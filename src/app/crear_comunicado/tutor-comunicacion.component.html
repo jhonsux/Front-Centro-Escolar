@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <form class="row g-4 p-4 shadow rounded bg-light" (ngSubmit)="crearComunicado()">
+    <h2 class="mb-4 text-center">Creando Un Comunicado Paterno</h2>
+    <div class="col-md-6">
+      <label class="form-label" >CURP de Tutor</label>
+      <input class="form-control" type="text" [(ngModel)]="comunicado.parent_id" name="parent_id" readonly>
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label" >Fecha</label>
+      <input class="form-control" type="date" [(ngModel)]="comunicado.date" name="date">
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label" >Metodo de Comunicacion</label>
+      <select class="form-select form-select mb-3" [(ngModel)]="comunicado.method" name="method" id="method"  >
+        <option value="Celular" selected>Celular</option>
+        <option value="Telefono">Telefono</option>
+        <option value="Email">Email</option>
+        <option value="Citatorio">Citatorio</option>
+      </select>
+    </div>
+
+    <div class="col-md-12">
+      <label for="descripción" class="form-label" >Descripcion</label>
+       <textarea id="description" class="form-control" rows="3" [(ngModel)]="comunicado.description"  name="description" placeholder="Agrega una descripción"></textarea>
+    </div>
+
+    <div class="col-md-12 text-center mt-5">
+      <button type="submit" class="btn btn-outline-success btn-lg">Guardar</button>
+    </div>
+
+  </form>
+</div>

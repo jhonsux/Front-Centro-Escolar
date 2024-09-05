@@ -1,0 +1,44 @@
+<div class="mb-4"></div>
+<div class="container mt-5">
+  <form class="row g-4 p-4 shadow rounded bg-light" (ngSubmit)="crearJustificante()">
+    <h3 class="mb-4 text-center">Crea y Guarda la Incidencia</h3>
+
+    <div class="col-md-3" style="display: none;">
+      <label for="report_id" class="form-label">ID Reporte</label>
+      <input id="report_id" class="form-control" type="text" [(ngModel)]="justificante.report_id" name="report_id" readonly>
+    </div>
+
+    <div class="col-md-6" style="display: none;">
+      <label for="student_id" class="form-label">ID Alumno</label>
+      <input id="student_id" class="form-control" type="text" [(ngModel)]="justificante.student_id" name="student_id" readonly>
+    </div>
+
+    <div>
+      <label for="student_id" class="form-label"> <strong>Alumno:</strong> {{alumno.name}} {{alumno.firstname}} {{alumno.lastname}} °{{alumno.semester_id}} "{{alumno.group_id}}"</label>
+    </div>
+
+    <div class="col-md-3">
+      <label for="date" class="form-label">Fecha</label>
+      <input id="date" class="form-control" type="date" [(ngModel)]="justificante.issue_date" name="date">
+    </div>
+
+    <div class="col-md-6">
+      <label for="date" class="form-label">Tipo de Incidencia</label>
+      <input class="form-control" type="text" [(ngModel)]="reporte.incidencia" name="incidencia" readonly>
+    </div>
+
+    <div>
+      <label for="description" class="form-label"> <strong>Descripción del reporte:</strong> {{reporte.description}}</label>
+    </div>
+
+    <div class="col-md-12">
+      <label for="description" class="form-label"> <strong>Adicional:</strong> Acuerdos y compromisos</label>
+      <textarea id="description" class="form-control" rows="3" [(ngModel)]="justificante.description" name="description" placeholder="Agrega una descripción"></textarea>
+    </div>
+
+    <div class="col-md-12 text-center mt-5">
+      <button type="submit" class="btn btn-outline-success">Guardar</button>
+    </div>
+  </form>
+  <!-- <button (click)="actualizarReporte()">actualizarReporte</button> -->
+</div>

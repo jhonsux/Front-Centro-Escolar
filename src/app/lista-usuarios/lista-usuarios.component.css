@@ -1,0 +1,78 @@
+.table {
+  margin-top: 20px;
+  border-collapse: separate;
+  border-spacing: 1px;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+.table thead th {
+  background-color: #343a40;
+  color: #fff;
+  border: none;
+}
+
+.table tbody tr {
+  background-color: #fff;
+  transition: all 0.1s;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+  transform: scale(1.0);
+}
+
+.table-hover tbody tr:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-warning {
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+.btn-warning:hover {
+  color: #fff;
+  background-color: #ec971f;
+  border-color: #d58512;
+}
+
+
+
+
+
+.navbar {
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar-brand {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.navbar-nav .nav-link {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: #ffbb33;
+}
+
+.navbar-toggler {
+  border-style: outset !important;
+}
+.navbar-toggler[aria-expanded="true"] {
+  border-style: inset !important;
+}
+
+.dropdown-item {
+  cursor: pointer;
+}

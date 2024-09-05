@@ -1,0 +1,104 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/menu']">
+      <img src="/assets/imaje.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+      INICIO
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- Aquí puedes añadir más elementos si es necesario -->
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           {{usuario.name}} {{usuario.firstname}} {{usuario.lastname}}
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <!-- <li><a class="dropdown-item" [routerLink]="['/usuarios/actualizar', usuario.user_id]">Mi Perfil</a></li> -->
+            <!-- <li><a class="dropdown-item" href="#">Configuración</a></li> -->
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" (click)="logout()">Cerrar Sesión</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="mb-4"></div>
+
+<div class="container text-center mt-5">
+  <h1 class="mb-4">Menú De Inicio</h1>
+
+  <div class="row justify-content-center mb-4">
+
+    <div class="col-md-3">
+      <a class="card-link" [routerLink]="['/alumnos']">
+        <div class="p-4 border border-primary rounded shadow-sm">
+          <!-- <h4 class="text-primary">Gestionar</h4> -->
+          <h5 class="text-secondary">Alumnos</h5>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-3 mx-3">
+      <a class="card-link" [routerLink]="['/reportes']">
+        <div class="p-4 border border-warning rounded shadow-sm">
+          <!-- <h4 class="text-primary">Lista</h4> -->
+          <h5 class="text-secondary">Reportes</h5>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-3" *ngIf="userRole === 'admin'">
+      <a class="card-link" [routerLink]="['/justificantes']">
+        <div class="p-4 border border-success rounded shadow-sm">
+          <!-- <h4 class="text-primary">Gestionar</h4> -->
+          <h5 class="text-secondary">Incidencias</h5>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-3" *ngIf="userRole === 'admin'">
+      <a class="card-link" [routerLink]="['/tutores']">
+        <div class="p-4 border border-primary rounded shadow-sm">
+          <!-- <h4 class="text-primary">Gestionar</h4> -->
+          <h5 class="text-secondary">Tutores</h5>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-3" *ngIf="userRole === 'admin'">
+      <a class="card-link" [routerLink]="['/usuarios']">
+        <div class="p-4 border border-primary rounded shadow-sm">
+          <!-- <h4 class="text-primary">Gestionar</h4> -->
+          <h5 class="text-secondary">Usuarios</h5>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-3" >
+      <a class="card-link" [routerLink]="['/reportes/crear']">
+        <div class="p-4 border border-danger rounded shadow-sm">
+          <h4 class="text">Generar</h4>
+          <h5 class="text-secondary">Reporte</h5>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-3" *ngIf="userRole === 'admin'">
+      <a class="card-link" [routerLink]="['/upload']">
+        <div class="p-4 border border-primary rounded shadow-sm">
+          <h4 class="text">Archivos</h4>
+          <h5 class="text-secondary">De Seguridad</h5>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="mb-4"></div>
+
+<div class="container mt-5">
+  <form class="row g-4 p-4 shadow rounded bg-light" (ngSubmit)="guardarAlumno()">
+    <h2 class="mb-3 text-center">Actualiza o Crea Un Alumno</h2>
+
+    <div class="col-md-6">
+      <label for="student_id" class="form-label">ID Del Alumno</label>
+      <input type="text" class="form-control" id="student_id" [(ngModel)]="alumno.student_id" name="student_id"
+        required>
+    </div>
+
+    <div class="col-md-6">
+      <label for="name" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="alumno.name" name="name" required>
+    </div>
+
+    <div class="col-md-6">
+      <label for="firstname" class="form-label">Apellido Paterno</label>
+      <input type="text" class="form-control" id="firstname" [(ngModel)]="alumno.firstname" name="firstname" required>
+    </div>
+
+    <div class="col-md-6">
+      <label for="lastname" class="form-label">Apellido Materno</label>
+      <input type="text" class="form-control" id="lastname" [(ngModel)]="alumno.lastname" name="lastname" required>
+    </div>
+
+    <div class="col-md-3">
+      <label for="sex" class="form-label">Género</label>
+      <select class="form-select" id="sex" [(ngModel)]="alumno.sex" name="sex" required>
+        <option value="H">H</option>
+        <option value="M">M</option>
+        <option value="O" selected>O</option>
+      </select>
+    </div>
+
+    <div class="col-md-3">
+      <label for="status" class="form-label">Estatus</label>
+      <select class="form-select" id="status" [(ngModel)]="alumno.status" name="status" required>
+        <option value="ACTIVO" selected>ACTIVO</option>
+        <option value="INACTIVO">INACTIVO</option>
+      </select>
+    </div>
+
+    <div class="col-md-3">
+      <label for="grupo" class="form-label">Grupo</label>
+      <select class="form-select" id="grupo" [(ngModel)]="alumno.group_id" name="grupo" required>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+      </select>
+    </div>
+
+    <div class="col-md-3">
+      <label for="semestre" class="form-label">Semestre</label>
+      <select class="form-select" id="semestre" [(ngModel)]="alumno.semester_id" name="semestre" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+    </div>
+
+    <div class="col-md-6">
+      <label for="id_tutor" class="form-label">ID del Tutor</label>
+      <input type="text" class="form-control" id="id_tutor" [(ngModel)]="alumno.parent_id" name="id_tutor" required>
+    </div>
+
+    <div class="col-md-6 d-flex justify-content-center mt-5">
+      <button type="submit" class="btn btn-outline-success">GUARDAR</button>
+
+    </div>
+    <div class="col-md-6 d-flex justify-content-between mt-5">
+      <button type="button" class="btn btn-outline-danger" (click)="borrarAlumno(alumno.student_id)">BORRAR</button>
+    </div>
+  </form>
+</div>

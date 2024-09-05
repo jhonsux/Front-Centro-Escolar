@@ -1,0 +1,62 @@
+<div class="mb-4"></div>
+<div class="container mt-5">
+
+  <form class="row g-4 p-4 shadow rounded bg-light" (ngSubmit)="guardarTutor()">
+
+    <h2 class="mb-3 text-center">Actualiza o Crea un Tutor</h2>
+
+    <div class="col-md-6">
+      <label for="id_tutor" class="form-label">CURP Del Tutor</label>
+      <input type="text" class="form-control" id="id_tutor" [(ngModel)]="tutor.parent_id" name="id_tutor" required>
+    </div>
+
+    <div class="col-md-6">
+      <label for="name" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="tutor.name" name="name" required>
+    </div>
+
+    <div class="col-md-6">
+      <label for="firstname" class="form-label">Apellido Paterno</label>
+      <input type="text" class="form-control" id="firstname" [(ngModel)]="tutor.firstname" name="firstname" required>
+    </div>
+
+    <div class="col-md-6">
+      <label for="lastname" class="form-label">Apellidp Materno</label>
+      <input type="text" class="form-control" id="lastname" [(ngModel)]="tutor.lastname" name="lastname" required>
+    </div>
+
+    <div class="col-md-3">
+      <label for="telephone" class="form-label">Telefono</label>
+      <input type="text" class="form-control" id="telephone" [(ngModel)]="tutor.telephone" name="telephone" required>
+    </div>
+
+    <div class="col-md-3">
+      <label for="celphone" class="form-label">celular</label>
+      <input type="text" class="form-control" id="celphone" [(ngModel)]="tutor.celphone" name="celphone" required>
+    </div>
+
+    <div class="col-md-6">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" [(ngModel)]="tutor.email" name="email" required>
+    </div>
+
+    <div class="col-md-6">
+      <label for="adress" class="form-label">Domicilio</label>
+      <textarea id="adress" class="form-control" rows="2" [(ngModel)]="tutor.adress" name="adress"
+        placeholder="Agrega tu calle y colonia"></textarea>
+    </div>
+
+    <div class="col-md-6">
+      <label for="description" class="form-label">Observación</label>
+      <input type="text" class="form-control" id="description" [(ngModel)]="tutor.description" name="description" required
+        placeholder="Agrega una observación opcional.">
+    </div>
+
+    <div class="col-md-6 justify-content-center mt-5">
+      <button type="submit" class="btn btn-outline-success">GUARDAR</button>
+    </div>
+    <div class="col-md-6 d-flex justify-content-between mt-5">
+      <button type="button" class="btn btn-outline-danger" (click)="borrarTutor(tutor.parent_id)">BORRAR</button>
+    </div>
+  </form>
+</div>

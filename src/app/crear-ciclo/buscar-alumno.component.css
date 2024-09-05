@@ -1,0 +1,66 @@
+.container {
+  margin-top: 30px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.btn {
+  width: 48%;
+}
+
+.mt-5 {
+  margin-top: 3rem;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container {
+  margin-top: 20px;
+
+  margin: auto;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.table-hover > tbody > tr:hover {
+  background-color: rgba(0, 123, 255, 0.2);
+}
+
+.table-bordered th, .table-bordered td {
+  border: 1px solid #dee2e6;
+}
+
+.table-success {
+  background-color: #8bbf97;
+}
+
+.table-success th {
+  color: #fbfcfc;
+  background-color: #247d3a;
+}
+
+.table-success td {
+  color: #070707;
+}
+
+.text-center {
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #060606;
+}
