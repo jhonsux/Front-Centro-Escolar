@@ -88,7 +88,7 @@ export class CrearTutorComponent {
         text: 'El tutor ha sido creado con éxito.',
         showConfirmButton: true
       });
-      window.history.back();  // Retrocede una página en el historial
+      this.router.navigate(['/tutores']);  // Retrocede una página en el historial
     }, error => {
       console.log('Error Al Crear El Tutor', error);
       Swal.fire({
@@ -140,7 +140,7 @@ export class CrearTutorComponent {
               'El tutor ha sido borrado.',
               'success'
             );
-            window.history.back();  // Retrocede una página en el historial
+            this.router.navigate(['/tutores']);  // Retrocede una página en el historial
           },
           error => {
             console.error('Error al borrar el tutor', error);

@@ -111,7 +111,7 @@ export class CrearAlumnoComponent {
         text: 'El alumno ha sido creado con éxito.',
         showConfirmButton: true
       });
-      window.history.back();  // Retrocede una página en el historial
+      this.router.navigate(['/alumnos']);  // Retrocede una página en el historial
     }, error => {
       console.log('Error al crear el Alumno', error);
       Swal.fire({
@@ -142,7 +142,7 @@ export class CrearAlumnoComponent {
               'El alumno ha sido borrado.',
               'success'
             );
-            window.history.back();  // Retrocede una página en el historial
+            this.router.navigate(['/alumnos']); // Retrocede una página en el historial
           },
           error => {
             console.error('Error al borrar el alumno', error);

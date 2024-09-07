@@ -38,7 +38,7 @@ export class MenuInicioComponent implements OnInit {
       }).then(() => {
         this.authService.logout();
         // Redirigir a la página de inicio de sesión
-        window.location.href = '/login';
+        this.router.navigate(['/login']);
       });
     }
   }
