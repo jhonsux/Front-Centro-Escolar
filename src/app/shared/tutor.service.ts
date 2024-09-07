@@ -47,7 +47,12 @@ export class TutorService {
   }
 
   borrarTutor(id: string){
-    return this.http.delete<string>(`${this.BASE_URL}/tutores/${id}`);
+    const token = this.authService.getToken(); // Obtén el token almacenado
+    //console.log('Token:', token); // Agrega este log para verificar el token
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.delete<string>(`${this.BASE_URL}/tutores/${id}`, { headers});
   }
 }
 
