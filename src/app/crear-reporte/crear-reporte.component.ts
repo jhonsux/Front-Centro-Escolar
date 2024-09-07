@@ -60,10 +60,35 @@ export class CrearReporteComponent implements OnInit {
     this.alumnoService.buscarAlumno(this.criterio).subscribe(
       data => {
         this.alumnos = data;
-        console.log(data)
+
+        // Verifica si el resultado está vacío
+        if (this.alumnos.length === 0) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Alumno no encontrado',
+            text: 'No se encontró ningún alumno con ese nombre.',
+            confirmButtonText: 'OK'
+          });
+        }
       },
       error => {
-        console.error('Error al buscar alumno:', error);
+        if (error.status === 404) {
+          // Muestra el mensaje de alumno no encontrado
+          Swal.fire({
+            icon: 'warning',
+            title: 'Alumno no encontrado',
+            text: 'No se encontró ningún alumno con ese nombre.',
+            confirmButtonText: 'OK'
+          });
+        } else {
+          // Muestra un mensaje de error general
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Hubo un problema al buscar al alumno. Inténtalo de nuevo más tarde.',
+            confirmButtonText: 'OK'
+          });
+        }
       }
     );
   }
@@ -86,6 +111,7 @@ export class CrearReporteComponent implements OnInit {
 
   seleccionarIncidencia(id: string) {
     this.reporte.type_id = id
+    
   }
 
   crearReporte() {
