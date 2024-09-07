@@ -8,7 +8,7 @@ import {jwtDecode} from 'jwt-decode';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https://backend-centro-escolar-gnm-production.up.railway.app';
+  private apiUrl = 'https://backend-centro-escolar-gnm-production.up.railway.app/auth';
   //BASE_URL = 'http://192.168.1.66:3000/auth'
 
   private tokenExpirationSubject = new BehaviorSubject<boolean>(false);

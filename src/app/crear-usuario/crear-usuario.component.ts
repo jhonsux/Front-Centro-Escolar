@@ -79,7 +79,7 @@ export class CrearUsuarioComponent {
         text: 'El usuario ha sido actualizado con éxito.',
         showConfirmButton: true
       });
-      window.history.back();  // Retrocede una página en el historial
+      this.router.navigate(['/usuarios']); // Retrocede una página en el historial
     }, error => {
       console.error('Error al actualizar Usuario: ', error)
       Swal.fire({
