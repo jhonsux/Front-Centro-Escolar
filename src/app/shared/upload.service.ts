@@ -6,7 +6,8 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class UploadService {
-  BASE_URL = 'http://localhost:3000';
+  BASE_URL = 'https://backend-centro-escolar-gnm-production.up.railway.app'
+  // BASE_URL = 'http://localhost:3000';
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
