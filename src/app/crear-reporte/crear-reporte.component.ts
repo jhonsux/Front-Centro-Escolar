@@ -111,7 +111,7 @@ export class CrearReporteComponent implements OnInit {
 
   seleccionarIncidencia(id: string) {
     this.reporte.type_id = id
-    
+
   }
 
   crearReporte() {
@@ -123,7 +123,7 @@ export class CrearReporteComponent implements OnInit {
         text: 'El reporte ha sido creado con éxito.',
         showConfirmButton: true
       });
-      window.history.back();  // Retrocede una página en el historial
+      window.location.href = '/reportes'  // Retrocede una página en el historial
     }, error => {
       console.log('Error al crear Reporte', error);
       Swal.fire({

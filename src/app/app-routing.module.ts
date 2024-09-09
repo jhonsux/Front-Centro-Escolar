@@ -32,7 +32,7 @@ const routes: Routes = [
       { path: '', component: ListaAlumnosComponent },
       { path: 'crear', component: CrearAlumnoComponent, canActivate: [TutorGuard] },
       { path: ':id', component: AlumnoTutorComponent },
-      { path: 'actualizar/:id', component: CrearAlumnoComponent, canActivate: [TutorGuard] },
+      { path: 'actualizar/:id', component: EditarAlumnoComponent, canActivate: [TutorGuard] },
       { path: 'reporte/:id', component: CrearReporteComponent },
     ]
   },
@@ -53,7 +53,7 @@ const routes: Routes = [
       },
       {
         path: 'actualizar/:id',
-        component: CrearTutorComponent,
+        component: EditarTutorComponent,
         canActivate: [TutorGuard]
       },
       {

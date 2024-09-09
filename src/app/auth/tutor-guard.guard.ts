@@ -21,7 +21,7 @@ export class TutorGuard implements CanActivate {
       return true;
     }
 
-    // Si el usuario no tiene el rol adecuado, redirige a una página de acceso denegado o login
+    // Si el usuario no tiene el rol adecuado, redirige a una página de acceso login
     this.router.navigate(['/menu']);
     return false;
   }
