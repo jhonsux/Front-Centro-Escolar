@@ -80,3 +80,7 @@
   background-color: #dc3545;
   color: #ffffff;
 }
+
+.dropdown-item {
+  cursor: pointer;
+}
