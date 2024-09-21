@@ -29,7 +29,8 @@ import { CrearIncidenciaComponent } from './crear-incidencia/crear-incidencia.co
 import { MenuInicioComponent } from './menu-inicio/menu-inicio.component';
 import { TutorComunicacionComponent } from './crear_comunicado/tutor-comunicacion.component';
 import { ListaJustificantesComponent } from './lista-justificantes/lista-justificantes.component';
-import { ListaComunicadosComponent } from './lista-comunicados/lista-comunicados.component';
+import { ListaComunicadosComponent } from './noSeUsa/lista-comunicados.component';
+
 
 @NgModule({
   declarations: [
