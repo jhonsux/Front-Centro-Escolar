@@ -34,13 +34,15 @@
       <input type="date" class="form-control" id="fecha_fin" [(ngModel)]="periodo.fecha_fin" name="fecha_fin" required>
     </div>
     <div class="col-md-3">
-      <span class="input-group-text">Ciclo {{periodo.cicle_id}}</span>
+      <label for="cicle_id" class="form-label">Ciclo </label>
+      <input type="number" class="form-control" id="cicle_id" [(ngModel)]="periodo.cicle_id" name="cicle_id" readonly>
     </div>
     <div class="col-md-6 d-flex justify-content-center mt-5">
       <button type="submit" class="btn btn-outline-success">Guardar</button>
     </div>
   </form>
 </div>
+
 
 <div class="container mt-5">
   <h2 class="mb-4 text-center">Listas del Ciclo Escolar</h2>
