@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AlumnoService } from '../shared/alumno.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CicloModelC, CiclosModel } from '../shared/alumno.model';
 import Swal from 'sweetalert2';
 
@@ -20,7 +20,8 @@ export class BuscarAlumnoComponent implements OnInit {
   periodo: any  = {};
 
   constructor(
-    private ciclosService: AlumnoService
+    private ciclosService: AlumnoService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -42,7 +43,7 @@ export class BuscarAlumnoComponent implements OnInit {
       text: 'El periodo escolar ha sido creado con éxito.',
       showConfirmButton: true
     });
-    window.location.href = '/alumnos'  //
+    this.router.navigate(['/alumnos']);  //
   }, error => {
     console.log('Error al crear el periodo escolar', error);
     Swal.fire({
@@ -65,7 +66,7 @@ export class BuscarAlumnoComponent implements OnInit {
         text: 'El ciclo escolar ha sido creado con éxito.',
         showConfirmButton: true
       });
-      window.location.href = '/alumnos'  // Retrocede una página en el historial
+      this.router.navigate(['/alumnos']);   // Retrocede una página en el historial
 
     }, error => {
       console.log('Error al crear el Ciclo escolar', error);

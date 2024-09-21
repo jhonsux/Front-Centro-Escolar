@@ -48,14 +48,14 @@ export class TutorComunicacionComponent implements OnInit {
       });
       window.history.back();  // Retrocede una página en el historial
     }, error => {
-      console.log('Error al crear el Alumno', error);
+      console.log('Error al crear el comunicad', error);
       Swal.fire({
         icon: 'error',
         title: 'Error',
         text: 'Hubo un error al crear el cominucado.',
         showConfirmButton: true
       });
-      window.history.back();
+      
     })
   }
 

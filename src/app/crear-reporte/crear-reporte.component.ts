@@ -4,6 +4,7 @@ import { ReporteService } from '../shared/reporte.service';
 import { IncidenciaService } from '../shared/incidencia.service';
 import { AuthService } from '../shared/auth.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-reporte',
@@ -35,6 +36,7 @@ export class CrearReporteComponent implements OnInit {
     private incidenciaService: IncidenciaService,
     private reporteService: ReporteService,
     private authService: AuthService,
+    private router: Router
   ) {
     const today = new Date();
     this.reporte.date = today.toISOString().split('T')[0]}
@@ -123,7 +125,7 @@ export class CrearReporteComponent implements OnInit {
         text: 'El reporte ha sido creado con éxito.',
         showConfirmButton: true
       });
-      window.location.href = '/reportes'  // Retrocede una página en el historial
+      this.router.navigate(['/reportes']);  // Retrocede una página en el historial
     }, error => {
       console.log('Error al crear Reporte', error);
       Swal.fire({

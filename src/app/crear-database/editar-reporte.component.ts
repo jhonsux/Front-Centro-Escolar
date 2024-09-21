@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UploadService } from '../shared/upload.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class EditarReporteComponent implements OnInit {
 
   constructor(
     private uploadService: UploadService,
+    private router: Router
 
   ) { }
 
@@ -41,7 +43,7 @@ export class EditarReporteComponent implements OnInit {
             text: 'El Archivo se ha subido con éxito.',
             showConfirmButton: true
           });
-          window.history.back();
+          this.router.navigate(['/inicio']);
         },
         (error) => {
           console.error('Error al subir el archivo', error);
