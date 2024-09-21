@@ -86,11 +86,11 @@
 
   <!-- ID de la incidencia seleccionada -->
   <div class="input-group col-md-4 mt-3" *ngIf="reporte.type_id">
-    <span class="input-group-text">ID De Incidencia: </span>
-    <input class="form-control" type="text" id="incidenciaId" [value]="reporte.type_id" readonly>
-    <span class="input-group-text">Usuario: {{reporte.user_id}}</span>
+    <span class="input-group-text">Incidencia {{reporte.type_id}}</span>
+    <!-- <input class="form-control" type="text" id="incidenciaId" [value]="reporte.type_id" readonly> -->
+    <span class="input-group-text">Usuario {{reporte.user_id}}</span>
     <!-- <input class="form-control" type="text" id="user_id" [(ngModel)]="reporte.user_id" name="user_id" readonly> -->
-    <span class="input-group-text">Fecha :</span>
+    <span class="input-group-text">Fecha </span>
     <input class="form-control" type="date" id="date" [(ngModel)]="reporte.date" name="date">
   </div>
 </div>

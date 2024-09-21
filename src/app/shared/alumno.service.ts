@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AlumnoModel, CicloModelC, CiclosModel, ReportesModel, ReportesModelC } from './alumno.model';
+import { AlumnoModel, CicloModelC, CiclosModel, PeriodoModelC, ReportesModel, ReportesModelC } from './alumno.model';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service'
 
@@ -92,7 +92,20 @@ export class AlumnoService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-    return this.http.post<string>(`${this.BASE_URL}/ciclos/crear`, ciclo, { headers})
+    return this.http.post<string>(`${this.BASE_URL}/ciclos/crear-ciclo`, ciclo, { headers})
+  }
+
+  obtenerCiclo(id: string) {
+    return this.http.get<CiclosModel[]>(`${this.BASE_URL}/ciclos/${id}`);
+  }
+
+  crearPeriodo(periodo: PeriodoModelC) {
+    const token = this.authService.getToken(); // Obtén el token almacenado
+    //console.log('Token:', token); // Agrega este log para verificar el token
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.post<string>(`${this.BASE_URL}/ciclos/crear-periodo`, periodo, { headers})
   }
 
 }

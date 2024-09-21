@@ -7,7 +7,7 @@
         required>
     </div>
     <div class="col-md-3">
-      <label for="fecha_fin" class="form-label">Fecha Final</label>
+      <label for="fecha_fin" class="form-label">Fecha final</label>
       <input type="date" class="form-control" id="fecha_fin" [(ngModel)]="Ciclo.fecha_fin" name="fecha_fin" required>
     </div>
     <div class="col-md-6 d-flex justify-content-center mt-5">
@@ -16,7 +16,31 @@
   </form>
 </div>
 
-
+<div class="container mt-5">
+  <form (ngSubmit)="crearPeriodo()" class="row g-4 p-4 shadow rounded bg-light">
+    <h2 class="mb-3 text-center">Crear un nuevo Periodo Escolar</h2>
+    <div class="col-md-3">
+      <label for="nombre" class="form-label">Nombre del periodo</label>
+      <input type="text" class="form-control" id="nombre" [(ngModel)]="periodo.nombre" name="nombre" required>
+    </div>
+    <div class="col-md-3">
+      <label for="fecha_inicio" class="form-label">Fecha inicial</label>
+      <input type="date" class="form-control" id="fecha_inicio" [(ngModel)]="periodo.fecha_inicio" name="fecha_inicio"
+        required>
+    </div>
+    <div class="col-md-3">
+      <label for="fecha_fin" class="form-label">Fecha final</label>
+      <input type="date" class="form-control" id="fecha_fin" [(ngModel)]="periodo.fecha_fin" name="fecha_fin" required>
+    </div>
+    <div class="col-md-3">
+      <label for="cicle_id" class="form-label">Ciclo </label>
+      <input type="number" class="form-control" id="cicle_id" [(ngModel)]="periodo.cicle_id" name="cicle_id" required>
+    </div>
+    <div class="col-md-6 d-flex justify-content-center mt-5">
+      <button type="submit" class="btn btn-outline-success">Guardar</button>
+    </div>
+  </form>
+</div>
 
 
 <div class="container mt-5">

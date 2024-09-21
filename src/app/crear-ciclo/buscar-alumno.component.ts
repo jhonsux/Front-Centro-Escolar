@@ -17,6 +17,8 @@ export class BuscarAlumnoComponent implements OnInit {
     fecha_fin: ''
   };
 
+  periodo: any  = {};
+
   constructor(
     private ciclosService: AlumnoService
   ) { }
@@ -26,21 +28,40 @@ export class BuscarAlumnoComponent implements OnInit {
 
   }
 
-  guardarCiclo(ciclo: any) {
-    // Aquí iría la lógica para guardar el ciclo existente
-    console.log('Guardando ciclo:', ciclo);
-  }
+ crearPeriodo() {
+  
+  this.ciclosService.crearPeriodo(this.periodo).subscribe(response => {
+    console.log('Periodo escolar Creado', response);
+    Swal.fire({
+      icon: 'success',
+      title: 'Periodo Escolar Creado',
+      text: 'El periodo escolar ha sido creado con éxito.',
+      showConfirmButton: true
+    });
+    window.location.href = '/ciclo_escolar'  //
+  }, error => {
+    console.log('Error al crear el periodo escolar', error);
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Hubo un error al crear el periodo escolar.',
+      showConfirmButton: true
+    });
+  })
+  // Limpiar el formulario después de agregar
+  //this.Ciclo = { fecha_inicio: '', fecha_fin: '' };
+ }
 
   crearCiclo() {
     this.ciclosService.crearCiclo(this.Ciclo).subscribe(response => {
-      console.log('Alumno Creado', response);
+      console.log('Ciclo escolar Creado', response);
       Swal.fire({
         icon: 'success',
         title: 'Ciclo Escolar Creado',
         text: 'El ciclo escolar ha sido creado con éxito.',
         showConfirmButton: true
       });
-      window.history.back();  // Retrocede una página en el historial
+      window.location.href = '/ciclo_escolar'  // Retrocede una página en el historial
 
     }, error => {
       console.log('Error al crear el Ciclo escolar', error);
@@ -51,10 +72,8 @@ export class BuscarAlumnoComponent implements OnInit {
         showConfirmButton: true
       });
     })
-    // Lógica para agregar el nuevo ciclo escolar
-    console.log(this.Ciclo)
     // Limpiar el formulario después de agregar
-    this.Ciclo = { fecha_inicio: '', fecha_fin: '' };
+    //this.Ciclo = { fecha_inicio: '', fecha_fin: '' };
   }
 
 }

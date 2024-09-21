@@ -21,7 +21,7 @@ export class UploadService {
       'Authorization': `Bearer ${token}`
     });
 
-    return this.http.post(`${this.BASE_URL}/ciclos/upload`, formData, { headers });
+    return this.http.post(`${this.BASE_URL}/backup/upload`, formData, { headers });
   }
 
   downloadBackup() {
