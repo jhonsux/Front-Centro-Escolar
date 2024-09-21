@@ -34,7 +34,6 @@ export class BuscarAlumnoComponent implements OnInit {
   }
 
  crearPeriodo() {
-
   this.ciclosService.crearPeriodo(this.periodo).subscribe(response => {
     console.log('Periodo escolar Creado', response);
     Swal.fire({
@@ -43,7 +42,7 @@ export class BuscarAlumnoComponent implements OnInit {
       text: 'El periodo escolar ha sido creado con éxito.',
       showConfirmButton: true
     });
-    window.location.href = '/ciclo_escolar'  //
+    window.location.href = '/alumnos'  //
   }, error => {
     console.log('Error al crear el periodo escolar', error);
     Swal.fire({
@@ -66,7 +65,7 @@ export class BuscarAlumnoComponent implements OnInit {
         text: 'El ciclo escolar ha sido creado con éxito.',
         showConfirmButton: true
       });
-      window.location.href = '/ciclo_escolar'  // Retrocede una página en el historial
+      window.location.href = '/alumnos'  // Retrocede una página en el historial
 
     }, error => {
       console.log('Error al crear el Ciclo escolar', error);
