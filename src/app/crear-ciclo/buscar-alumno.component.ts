@@ -25,11 +25,16 @@ export class BuscarAlumnoComponent implements OnInit {
 
   ngOnInit(): void {
     this.ciclos = this.ciclosService.obtenerCiclos();
-
+    this.ciclos.subscribe(data => {
+      if (data.length > 0) {
+        // Guarda el último ciclo_id en cicle_id
+        this.periodo.cicle_id = data[data.length - 1].cicle_id;
+      }
+    });
   }
 
  crearPeriodo() {
-  
+
   this.ciclosService.crearPeriodo(this.periodo).subscribe(response => {
     console.log('Periodo escolar Creado', response);
     Swal.fire({

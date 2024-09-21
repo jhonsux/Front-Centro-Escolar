@@ -21,7 +21,8 @@
     <h2 class="mb-3 text-center">Crear un nuevo Periodo Escolar</h2>
     <div class="col-md-3">
       <label for="nombre" class="form-label">Nombre del periodo</label>
-      <input type="text" class="form-control" id="nombre" [(ngModel)]="periodo.nombre" name="nombre" required>
+      <input type="text" class="form-control" id="nombre" [(ngModel)]="periodo.nombre" name="nombre"  placeholder="Primer Periodo"
+      required>
     </div>
     <div class="col-md-3">
       <label for="fecha_inicio" class="form-label">Fecha inicial</label>
@@ -33,15 +34,13 @@
       <input type="date" class="form-control" id="fecha_fin" [(ngModel)]="periodo.fecha_fin" name="fecha_fin" required>
     </div>
     <div class="col-md-3">
-      <label for="cicle_id" class="form-label">Ciclo </label>
-      <input type="number" class="form-control" id="cicle_id" [(ngModel)]="periodo.cicle_id" name="cicle_id" required>
+      <span class="input-group-text">Ciclo {{periodo.cicle_id}}</span>
     </div>
     <div class="col-md-6 d-flex justify-content-center mt-5">
       <button type="submit" class="btn btn-outline-success">Guardar</button>
     </div>
   </form>
 </div>
-
 
 <div class="container mt-5">
   <h2 class="mb-4 text-center">Listas del Ciclo Escolar</h2>
