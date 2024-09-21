@@ -110,6 +110,12 @@ export class JustificantesModelC {
   ) {}
 }
 
+export class IncidenciasModel {
+  constructor (
+
+  ) {}
+}
+
 export class PeriodoModelC {
   constructor (
     public periodo_id: string,
