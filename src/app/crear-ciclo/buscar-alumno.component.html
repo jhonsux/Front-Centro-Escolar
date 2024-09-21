@@ -58,8 +58,8 @@
       <tbody>
         <tr *ngFor="let ciclo of ciclos | async">
           <td>{{ ciclo.cicle_id }}</td>
-          <td>{{ ciclo.fecha_inicio | date }}</td>
-          <td>{{ ciclo.fecha_fin | date }}</td>
+          <td>{{ ciclo.fecha_inicio | date: 'dd-MM-yyyy' }}</td>
+          <td>{{ ciclo.fecha_fin | date: 'dd-MM-yyyy' }}</td>
         </tr>
       </tbody>
     </table>
