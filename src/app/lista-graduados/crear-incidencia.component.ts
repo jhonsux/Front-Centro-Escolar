@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from '../shared/auth.service';
 import Swal from 'sweetalert2';
 import { UsuarioService } from '../shared/usuario.service';
-import { AlumnoModelV } from '../shared/alumno.model';
+import { AlumnoModel } from '../shared/alumno.model';
 
 @Component({
   selector: 'app-crear-incidencia',
@@ -16,7 +16,7 @@ import { AlumnoModelV } from '../shared/alumno.model';
   styleUrls: ['./crear-incidencia.component.css']
 })
 export class CrearIncidenciaComponent implements OnInit {
-  alumnos: Observable<AlumnoModelV[]> | undefined
+  alumnos: Observable<AlumnoModel[]> | undefined
   usuario: any = {}
   user_id = ''
   userRole = '';
