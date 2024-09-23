@@ -83,7 +83,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let alumno of alumnos">
+      <tr *ngFor="let alumno of alumnos | async">
         <th scope="row">{{ alumno.student_id }}</th>
         <td>{{ alumno.name }}</td>
         <td>{{ alumno.firstname }}</td>
