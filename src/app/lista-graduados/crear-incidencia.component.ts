@@ -4,9 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { ComunicadoService } from '../shared/comunicado.service';
 import { TutorService } from '../shared/tutor.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from '../shared/auth.service';
 import Swal from 'sweetalert2';
 import { UsuarioService } from '../shared/usuario.service';
+import { AlumnoModelV } from '../shared/alumno.model';
 
 @Component({
   selector: 'app-crear-incidencia',
@@ -14,7 +16,7 @@ import { UsuarioService } from '../shared/usuario.service';
   styleUrls: ['./crear-incidencia.component.css']
 })
 export class CrearIncidenciaComponent implements OnInit {
-  alumnos: any = {}
+  alumnos: Observable<AlumnoModelV[]> | undefined
   usuario: any = {}
   user_id = ''
   userRole = '';
