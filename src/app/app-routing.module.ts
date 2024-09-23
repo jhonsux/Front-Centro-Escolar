@@ -16,6 +16,7 @@ import { CrearJustificanteComponent } from './crear-justificante/crear-justifica
 import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
 import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
+import { CrearIncidenciaComponent } from './lista-graduados/crear-incidencia.component';
 import { ListaJustificantesComponent } from './lista-justificantes/lista-justificantes.component';
 import { BuscarAlumnoComponent } from './crear-ciclo/buscar-alumno.component';
 import { EditarReporteComponent } from './crear-database/editar-reporte.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
     path: 'alumnos',
     children: [
       { path: '', component: ListaAlumnosComponent },
+      { path: 'graduados', component: CrearIncidenciaComponent },
       { path: 'crear', component: CrearAlumnoComponent, canActivate: [TutorGuard] },
       { path: ':id', component: AlumnoTutorComponent },
       { path: 'actualizar/:id', component: EditarAlumnoComponent, canActivate: [TutorGuard] },

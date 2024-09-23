@@ -16,12 +16,12 @@
             Alumnos
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/alumnos">Lista Alumnos</a></li>
-            <!-- <li><a class="dropdown-item" href="#">Another action</a></li> -->
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+            <li><a class="dropdown-item" href="/alumnos">Lista De Alumnos</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <div *ngIf="userRole === 'admin'">
+              <li><a class="dropdown-item" href="/alumnos/crear">Crear Un Alumno</a></li>
+            </div>
+            <li><a class="dropdown-item" href="/alumnos/graduados">Lista De Alumnos Graduados</a></li>
           </ul>
         </li>
       </ul>
