@@ -35,7 +35,9 @@ export class CrearIncidenciaComponent implements OnInit {
 
     // Obtener el rol del usuario y guardarlo en la propiedad
     this.userRole = this.authService.getUserRole();
-    console.log(this.userRole)
+    // console.log(this.userRole)
+
+    this.alumnos = this.alumnoService.alumnosGraduados()
 
     // Verificar si el token ya está expirado al cargar la aplicación
     if (this.authService.isTokenExpired()) {
