@@ -25,7 +25,7 @@ import { DetallesAlumnoComponent } from './detalles-alumno/detalles-alumno.compo
 import { AlumnoTutorComponent } from './alumno-tutor/alumno-tutor.component';
 import { BuscarAlumnoComponent } from './crear-ciclo/buscar-alumno.component';
 import { CrearJustificanteComponent } from './crear-justificante/crear-justificante.component';
-import { CrearIncidenciaComponent } from './crear-incidencia/crear-incidencia.component';
+import { CrearIncidenciaComponent } from './lista-graduados/crear-incidencia.component';
 import { MenuInicioComponent } from './menu-inicio/menu-inicio.component';
 import { TutorComunicacionComponent } from './crear_comunicado/tutor-comunicacion.component';
 import { ListaJustificantesComponent } from './lista-justificantes/lista-justificantes.component';

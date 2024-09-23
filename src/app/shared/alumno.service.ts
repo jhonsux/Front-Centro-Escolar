@@ -25,6 +25,15 @@ export class AlumnoService {
     return this.http.get<AlumnoModel[]>(this.BASE_URL + '/alumnos', { headers });
   }
 
+  alumnosGraduados(): Observable<any> {
+    const token = this.authService.getToken(); // Obtén el token almacenado
+    //console.log('Token:', token); // Agrega este log para verificar el token
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<AlumnoModel[]>(this.BASE_URL + '/alumnos/graduados', { headers });
+  }
+
   obtenerReporteAlumno(id: string): Observable<any> {
     return this.http.get(`${this.BASE_URL}/alumnos/reporte/${id}`)
   }
