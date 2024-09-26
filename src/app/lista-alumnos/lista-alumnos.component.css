@@ -45,7 +45,7 @@
 }
 
 .table-responsive {
-  max-height: 520px; /* Ajusta el valor a la altura que prefieras */
+  max-height: 480px; /* Ajusta el valor a la altura que prefieras */
   overflow-y: auto; /* Añade scroll vertical si excede la altura */
   display: block;
   width: 100%;
@@ -54,7 +54,7 @@
 }
 
 tbody tr {
-  max-height: 65px; /* Aproximadamente para cuatro filas visibles */
+  max-height: 60px; /* Aproximadamente para cuatro filas visibles */
 }
 
 
