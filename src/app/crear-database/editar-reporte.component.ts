@@ -31,7 +31,6 @@ export class EditarReporteComponent implements OnInit {
 
   }
 
-
   onSubmit(): void {
     if (this.selectedFile) {
       this.uploadService.uploadCsv(this.selectedFile).subscribe(
@@ -58,7 +57,31 @@ export class EditarReporteComponent implements OnInit {
     }
   }
 
-
+  uploadTutorescsv(): void {
+    if (this.selectedFile) {
+      this.uploadService.uploadCsv(this.selectedFile).subscribe(
+        (response) => {
+          console.log('Archivo subido exitosamente', response);
+          Swal.fire({
+            icon: 'success',
+            title: 'Archivo Creado',
+            text: 'El Archivo se ha subido con éxito.',
+            showConfirmButton: true
+          });
+          this.router.navigate(['/inicio']);
+        },
+        (error) => {
+          console.error('Error al subir el archivo', error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Hubo un error al subir el archivo.',
+            showConfirmButton: true
+          });
+        }
+      );
+    }
+  }
 
   downloadBackup() {
     this.uploadService.downloadBackup().subscribe((response: any) => {
@@ -72,5 +95,21 @@ export class EditarReporteComponent implements OnInit {
     });
   }
 
+  // Método para enviar el archivo al backend
+  onUpload(): void {
+    if (this.selectedFile) {
+      this.uploadService.uploadBackup(this.selectedFile)
+        .subscribe({
+          next: (response) => {
+            console.log('Archivo subido con éxito:', response);
+          },
+          error: (error) => {
+            console.error('Error al subir el archivo:', error);
+          }
+        });
+    } else {
+      console.error('No se ha seleccionado ningún archivo');
+    }
+  }
 
 }
