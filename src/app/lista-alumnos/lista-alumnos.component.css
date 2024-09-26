@@ -51,7 +51,7 @@ table {
 }
 
 tbody tr {
-  max-height: 60px; /* Aproximadamente para cuatro filas visibles */
+  max-height: 80px; /* Aproximadamente para cuatro filas visibles */
 }
 
 
