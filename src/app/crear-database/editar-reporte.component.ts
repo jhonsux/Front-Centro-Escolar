@@ -42,7 +42,7 @@ export class EditarReporteComponent implements OnInit {
             text: 'El Archivo se ha subido con éxito.',
             showConfirmButton: true
           });
-          this.router.navigate(['/inicio']);
+          this.router.navigate(['/menu']);
         },
         (error) => {
           console.error('Error al subir el archivo', error);
@@ -59,7 +59,7 @@ export class EditarReporteComponent implements OnInit {
 
   uploadTutorescsv(): void {
     if (this.selectedFile) {
-      this.uploadService.uploadCsv(this.selectedFile).subscribe(
+      this.uploadService.uploadTutoresCsv(this.selectedFile).subscribe(
         (response) => {
           console.log('Archivo subido exitosamente', response);
           Swal.fire({
@@ -68,7 +68,7 @@ export class EditarReporteComponent implements OnInit {
             text: 'El Archivo se ha subido con éxito.',
             showConfirmButton: true
           });
-          this.router.navigate(['/inicio']);
+          this.router.navigate(['/menu']);
         },
         (error) => {
           console.error('Error al subir el archivo', error);
