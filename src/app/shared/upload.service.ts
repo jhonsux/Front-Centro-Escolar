@@ -44,13 +44,13 @@ export class UploadService {
   // Método para subir el archivo de respaldo
   uploadBackup(file: File) {
     const formData = new FormData();
-    formData.append('file', file, file.name);  // 'file' es el campo que espera tu backend
+    formData.append('file', file, file.name);  // 'file' es el campo que espera  backend
 
     const token = this.authService.getToken(); // Obtén el token almacenado
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
 
-    return this.http.post(`${this.BASE_URL}/restore`, formData, { headers });
+    return this.http.post(`${this.BASE_URL}/backup/restore`, formData, { headers });
   }
 }

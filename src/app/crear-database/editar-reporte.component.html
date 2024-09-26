@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <form class="row g-4 p-4 shadow rounded bg-light" action="">
     <h2>Descargar Copia de Seguridad</h2>
-    <p>Haz clic en el botón de abajo para descargar una copia de seguridad de la base de datos.</p>
+    <p>Haz click en el botón de abajo para descargar una copia de seguridad de la base de datos.</p>
     <!-- Botón estilizado -->
     <button (click)="downloadBackup()" class="btn btn-primary">
       Descargar copia de seguridad
@@ -10,10 +10,12 @@
 </div>
 
 <div class="container mt-5">
-  <form  class="row g-4 p-4 shadow rounded bg-light" action="">
-  <h2>Subir copia de seguridad descargada periodicamente</h2>
-  <input type="file" (change)="onFileSelected($event)" />
-  <button (click)="onUpload()" class="btn btn-primary " >Subir Archivo</button>
+  <form  class="row g-4 p-4 shadow rounded bg-light" (click)="onUpload()" enctype="multipart/form-data">
+  <h2>Subir copia de seguridad</h2>
+  <p>Haz click en el botón de abajo para subir tu respaldo de la base de datos descargada periodicamente.</p>
+  <label for="">Buscar Archivo CSV</label>
+  <input type="file" (change)="onFileSelected($event)" accept=".sql" />
+  <button  class="btn btn-outline-success" type="click" [disabled]="!selectedFile">Subir Archivo sql</button>
   </form>
 </div>
 
@@ -21,7 +23,7 @@
 <div class="container mt-5">
   <form class="row g-4 p-4 shadow rounded bg-light" (submit)="onSubmit()" enctype="multipart/form-data">
     <h2>Subir Archivo Datos De Alumnos</h2>
-    <label for="">Buscar Archivo CSV</label>
+    <label for="">Buscar Archivo SQL</label>
     <input class="" type="file" (change)="onFileSelected($event)" accept=".csv" />
     <button class="btn btn-outline-success" type="submit" [disabled]="!selectedFile">Subir Alumnos CSV</button>
   </form>
@@ -32,6 +34,6 @@
     <h2>Subir Archivo Datos De Tutores</h2>
     <label for="">Buscar Archivo CSV</label>
     <input class="" type="file" (change)="onFileSelected($event)" accept=".csv" />
-    <button class="btn btn-outline-success" type="submit" [disabled]="!selectedFile">Subir Tutores CSV</button>
+    <button class="btn btn-outline-success" type="click" [disabled]="!selectedFile">Subir Tutores CSV</button>
   </form>
 </div>
