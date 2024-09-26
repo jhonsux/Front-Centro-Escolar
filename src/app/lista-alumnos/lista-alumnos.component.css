@@ -41,6 +41,20 @@
   border-color: #d58512;
 }
 
+.table-responsive {
+  max-height: 300px; /* Ajusta el valor a la altura que prefieras */
+  overflow-y: auto; /* Añade scroll vertical si excede la altura */
+}
+
+table {
+  table-layout: fixed; /* Para evitar que las columnas se deformen */
+}
+
+tbody tr {
+  max-height: 60px; /* Aproximadamente para cuatro filas visibles */
+}
+
+
 
 .navbar {
   font-family: 'Roboto', sans-serif;
