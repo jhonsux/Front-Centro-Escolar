@@ -82,7 +82,7 @@ if (this.authService.isTokenExpired()) {
               'El alumno ha sido borrado.',
               'success'
             );
-            window.history.back();  // Retrocede una página en el historial
+            window.location.href = '/alumnos';  
           },
           error => {
             console.error('Error al borrar el alumno', error);

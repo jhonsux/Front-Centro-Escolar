@@ -13,7 +13,7 @@
   <form  class="row g-4 p-4 shadow rounded bg-light" (click)="onUpload()" enctype="multipart/form-data">
   <h2>Subir copia de seguridad</h2>
   <p>Haz click en el botón de abajo para subir tu respaldo de la base de datos descargada periodicamente.</p>
-  <label for="">Buscar Archivo CSV</label>
+  <label for="">Buscar Archivo SQL</label>
   <input type="file" (change)="onFileSelected($event)" accept=".sql" />
   <button  class="btn btn-outline-success" type="click" [disabled]="!selectedFile">Subir Archivo sql</button>
   </form>
