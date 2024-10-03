@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./editar-reporte.component.css']
 })
 export class EditarReporteComponent implements OnInit {
-  selectedFile: File | null = null;
+  selectedSQL: File | null = null;
+  selectedAlumnos: File | null = null;
+  selectedTutores: File | null = null;
 
 
   constructor(
@@ -20,10 +22,24 @@ export class EditarReporteComponent implements OnInit {
 
   ) { }
 
-   onFileSelected(event: any): void {
+   onFileSelectedSQL(event: any): void {
     const file: File = event.target.files[0];
     if (file) {
-      this.selectedFile = file;
+      this.selectedSQL = file;
+    }
+  }
+
+  onFileSelectedA(event: any): void {
+    const file: File = event.target.files[0];
+    if (file) {
+      this.selectedAlumnos = file;
+    }
+  }
+
+  onFileSelectedT(event: any): void {
+    const file: File = event.target.files[0];
+    if (file) {
+      this.selectedTutores = file;
     }
   }
 
@@ -32,8 +48,8 @@ export class EditarReporteComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.selectedFile) {
-      this.uploadService.uploadCsv(this.selectedFile).subscribe(
+    if (this.selectedAlumnos) {
+      this.uploadService.uploadCsv(this.selectedAlumnos).subscribe(
         (response) => {
           console.log('Archivo subido exitosamente', response);
           Swal.fire({
@@ -58,8 +74,8 @@ export class EditarReporteComponent implements OnInit {
   }
 
   uploadTutorescsv(): void {
-    if (this.selectedFile) {
-      this.uploadService.uploadTutoresCsv(this.selectedFile).subscribe(
+    if (this.selectedTutores) {
+      this.uploadService.uploadTutoresCsv(this.selectedTutores).subscribe(
         (response) => {
           console.log('Archivo subido exitosamente', response);
           Swal.fire({
@@ -97,8 +113,8 @@ export class EditarReporteComponent implements OnInit {
 
   // Método para enviar el archivo al backend
   onUpload(): void {
-    if (this.selectedFile) {
-      this.uploadService.uploadBackup(this.selectedFile)
+    if (this.selectedSQL) {
+      this.uploadService.uploadBackup(this.selectedSQL)
         .subscribe({
           next: (response) => {
             console.log('Archivo subido con éxito:', response);

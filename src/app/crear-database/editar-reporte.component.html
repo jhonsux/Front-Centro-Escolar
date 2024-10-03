@@ -14,8 +14,8 @@
   <h2>Subir copia de seguridad</h2>
   <p>Haz click en el botón de abajo para subir tu respaldo de la base de datos descargada periodicamente.</p>
   <label for="">Buscar Archivo SQL</label>
-  <input type="file" (change)="onFileSelected($event)" accept=".sql" />
-  <button  class="btn btn-outline-success" type="click" [disabled]="!selectedFile">Subir Archivo sql</button>
+  <input type="file" (change)="onFileSelectedSQL($event)" accept=".sql" />
+  <button  class="btn btn-outline-primary" [disabled]="!selectedSQL">Subir Archivo SQL</button>
   </form>
 </div>
 
@@ -24,8 +24,8 @@
   <form class="row g-4 p-4 shadow rounded bg-light" (submit)="onSubmit()" enctype="multipart/form-data">
     <h2>Subir Archivo Datos De Alumnos</h2>
     <label for="">Buscar Archivo SQL</label>
-    <input class="" type="file" (change)="onFileSelected($event)" accept=".csv" />
-    <button class="btn btn-outline-success" type="submit" [disabled]="!selectedFile">Subir Alumnos CSV</button>
+    <input class="" type="file" (change)="onFileSelectedA($event)" accept=".csv" />
+    <button class="btn btn-outline-success" type="submit" [disabled]="!selectedAlumnos">Subir Alumnos CSV</button>
   </form>
 </div>
 
@@ -33,7 +33,7 @@
   <form class="row g-4 p-4 shadow rounded bg-light" (click)="uploadTutorescsv()" enctype="multipart/form-data">
     <h2>Subir Archivo Datos De Tutores</h2>
     <label for="">Buscar Archivo CSV</label>
-    <input class="" type="file" (change)="onFileSelected($event)" accept=".csv" />
-    <button class="btn btn-outline-success" type="click" [disabled]="!selectedFile">Subir Tutores CSV</button>
+    <input class="" type="file" (change)="onFileSelectedT($event)" accept=".csv" />
+    <button class="btn btn-outline-success" type="click" [disabled]="!selectedTutores">Subir Tutores CSV</button>
   </form>
 </div>
