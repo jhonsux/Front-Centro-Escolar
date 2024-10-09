@@ -38,7 +38,7 @@
 }
 
 .table-responsive {
-  max-height: 300px; /* Ajusta el valor según tu preferencia */
+  max-height: 420px; /* Ajusta el valor según tu preferencia */
   overflow-y: auto;  /* Habilita el scroll vertical */
   width: 100%;
   -webkit-overflow-scrolling: touch; /* Hace que el desplazamiento sea suave en móviles */
@@ -55,7 +55,7 @@ tbody tr {
 }
 
 body {
-  padding-top: 70px; /* Ajusta según la altura del navbar */
+  padding-top: 100px; /* Ajusta según la altura del navbar */
 }
 
 .navbar {
