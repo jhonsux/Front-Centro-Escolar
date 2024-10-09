@@ -41,7 +41,7 @@
   max-height: 410px; /* Ajusta el valor según tu preferencia */
   overflow-y: auto;  /* Habilita el scroll vertical */
   width: 100%;
-  overflow-x: auto;
+
   -webkit-overflow-scrolling: touch; /* Hace que el desplazamiento sea suave en móviles */
 }
 
@@ -53,10 +53,11 @@
 
 tbody tr {
   max-height: 60px; /* Aproximadamente para cuatro filas visibles */
+  overflow-x: auto;
 }
 
 body {
-  padding-top: 70px; /* Ajusta según la altura del navbar */
+  padding-top: 10px; /* Ajusta según la altura del navbar */
 }
 
 .navbar {
