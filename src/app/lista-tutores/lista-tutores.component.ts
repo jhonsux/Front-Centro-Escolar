@@ -15,7 +15,8 @@ import { UsuarioService } from '../shared/usuario.service';
 export class ListaTutoresComponent implements OnInit {
 
   tutores: Observable<TutoresModel[]> | undefined
-
+  tutor: any[] = []
+  criterio: string = ''
   usuario: any = {}
   user_id = ''
   userRole = '';
@@ -51,6 +52,43 @@ export class ListaTutoresComponent implements OnInit {
       alert('Hubo un error al borrar el Tutor');
     }
    );
+  }
+
+  buscarTutor() {
+    this.tutorService.buscarTutor(this.criterio).subscribe(
+      data => {
+        this.tutor = data;
+
+        // Verifica si el resultado está vacío
+        if (this.tutor.length === 0) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Alumno no encontrado',
+            text: 'No se encontró ningún alumno con ese nombre.',
+            confirmButtonText: 'OK'
+          });
+        }
+      },
+      error => {
+        if (error.status === 404) {
+          // Muestra el mensaje de alumno no encontrado
+          Swal.fire({
+            icon: 'warning',
+            title: 'Alumno no encontrado',
+            text: 'No se encontró ningún alumno con ese nombre.',
+            confirmButtonText: 'OK'
+          });
+        } else {
+          // Muestra un mensaje de error general
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Hubo un problema al buscar al alumno. Inténtalo de nuevo más tarde.',
+            confirmButtonText: 'OK'
+          });
+        }
+      }
+    );
   }
 
   logout() {

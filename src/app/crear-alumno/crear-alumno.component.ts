@@ -56,7 +56,7 @@ export class CrearAlumnoComponent {
       (alumnoExistente) => {
         if (alumnoExistente) {
           // Si el alumno existe, actualiza
-          this.actualizar();
+
         } else {
           // Si el alumno no existe, crea uno nuevo
           this.crearAlumno();
@@ -79,29 +79,6 @@ export class CrearAlumnoComponent {
     );
   }
 
-
-  actualizar() {
-    this.alumnoService.actualizarAlumno(this.alumno).subscribe(response => {
-      console.log('Alumno actualizado: ', response);
-      Swal.fire({
-        icon: 'success',
-        title: 'Alumno Actualizado',
-        text: 'El alumno ha sido actualizado con éxito.',
-        showConfirmButton: true
-      });
-      window.history.back();  // Retrocede una página en el historial
-    }, error => {
-      console.error('Error al actualizar alumno: ', error)
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Hubo un error al actualizar el alumno.',
-        showConfirmButton: true
-      });
-    });
-  }
-
-
   crearAlumno() {
     this.alumnoService.crearAlumno(this.alumno).subscribe(response => {
       console.log('Alumno Creado', response);
@@ -123,38 +100,5 @@ export class CrearAlumnoComponent {
     })
   }
 
-  borrarAlumno(id: string) {
-    Swal.fire({
-      title: '¿Estás seguro?',
-      text: "¡No podrás revertir esto!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí, borrar!',
-      cancelButtonText: 'Cancelar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.alumnoService.borrarAlumno(id).subscribe(
-          data => {
-            Swal.fire(
-              'Borrado!',
-              'El alumno ha sido borrado.',
-              'success'
-            );
-            this.router.navigate(['/alumnos']); // Retrocede una página en el historial
-          },
-          error => {
-            console.error('Error al borrar el alumno', error);
-            Swal.fire(
-              'Error!',
-              'Hubo un error al borrar el alumno.',
-              'error'
-            );
-          }
-        );
-      }
-    });
-  }
 
 }

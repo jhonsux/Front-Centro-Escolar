@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TutoresModel } from './alumno.model';
+import { Observable } from 'rxjs';
 import { AuthService } from './auth.service'
 
 @Injectable({
@@ -26,6 +27,10 @@ export class TutorService {
 
   obtenerTutor(id: string){
     return this.http.get<TutoresModel[]>(`${this.BASE_URL}/tutores/${id}`);
+  }
+
+  buscarTutor(query: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.BASE_URL}/tutores/buscar?query=${query}`);
   }
 
   crearTutor(tutor: TutoresModel){

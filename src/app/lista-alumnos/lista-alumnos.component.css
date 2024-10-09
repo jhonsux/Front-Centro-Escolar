@@ -54,10 +54,12 @@
 }
 
 tbody tr {
-  max-height: 60px; /* Aproximadamente para cuatro filas visibles */
+  max-height: 50px; /* Aproximadamente para cuatro filas visibles */
 }
 
-
+body {
+  padding-top: 70px; /* Ajusta según la altura del navbar */
+}
 
 .navbar {
   font-family: 'Roboto', sans-serif;

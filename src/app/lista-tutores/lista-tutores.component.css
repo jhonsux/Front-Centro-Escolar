@@ -41,8 +41,22 @@
   border-color: #d58512;
 }
 
+.table-responsive {
+  max-height: 480px; /* Ajusta el valor a la altura que prefieras */
+  overflow-y: auto; /* Añade scroll vertical si excede la altura */
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Hace que el desplazamiento sea suave en dispositivos móviles */
+}
 
+tbody tr {
+  max-height: 100px; /* Aproximadamente para  filas visibles */
+}
 
+body {
+  padding-top: 70px; /* Ajusta según la altura del navbar */
+}
 
 
 .navbar {

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body shadow-sm fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" [routerLink]="['/menu']">
       <img src="/assets/imaje.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
@@ -11,7 +11,21 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <!-- Aquí puedes añadir más elementos si es necesario -->
-         <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Alumnos
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/alumnos">Lista De Alumnos</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <div *ngIf="userRole === 'admin'">
+              <li><a class="dropdown-item" href="/alumnos/crear">Crear Un Alumno</a></li>
+            </div>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/alumnos/graduados">Lista De Alumnos Graduados</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Tutores
           </a>
@@ -21,10 +35,37 @@
             <div *ngIf="userRole === 'admin'">
               <li><a class="dropdown-item" href="/tutores/crear">Crear Un Tutor</a></li>
             </div>
-
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Ciclo Escolar
+          </a>
+          <ul class="dropdown-menu">
+            <!-- <li><hr class="dropdown-divider"></li> -->
+            <div *ngIf="userRole === 'admin'">
+              <li><a class="dropdown-item" href="/ciclo_escolar">Crear Nuevo Ciclo Escolar</a></li>
+            </div>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Usuarios
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/usuarios">Lista De Usuarios</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <div *ngIf="userRole === 'admin'">
+              <li><a class="dropdown-item" href="/usuarios/crear">Crear Un Usuario</a></li>
+            </div>
           </ul>
         </li>
       </ul>
+      <form class="d-flex me-3" role="search" (ngSubmit)="buscarTutor()">
+        <input class="form-control me-2" type="search" [(ngModel)]="criterio" name="criterio"
+          placeholder="Buscar Alumno" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+      </form>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -51,14 +92,14 @@
     <thead class="thead-dark">
       <tr>
         <th scope="col">CURP</th>
-        <th scope="col">nombre</th>
-        <th scope="col">apellido paterno</th>
-        <th scope="col">apellido materno</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido Pa.</th>
+        <th scope="col">Apellido Ma.</th>
         <th scope="col">Direccion</th>
-        <th scope="col">telefono</th>
+        <th scope="col">Telefono</th>
         <th scope="col">Email</th>
-        <th scope="col">celular</th>
-        <th scope="col">observacion</th>
+        <th scope="col">Celular</th>
+        <th scope="col">Observacion</th>
         <th class="col-1">Option</th>
       </tr>
     </thead>

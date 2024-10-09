@@ -42,6 +42,9 @@
 }
 
 
+body {
+  padding-top: 70px; /* Ajusta según la altura del navbar */
+}
 
 
 
