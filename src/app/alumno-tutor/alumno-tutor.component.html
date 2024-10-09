@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body shadow-sm fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" [routerLink]="['/menu']">
       <img src="/assets/imaje.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
@@ -25,19 +25,52 @@
             <li><a class="dropdown-item" href="/alumnos/graduados">Lista De Alumnos Graduados</a></li>
           </ul>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Tutores
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/tutores">Lista De Tutores</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <div *ngIf="userRole === 'admin'">
+              <li><a class="dropdown-item" href="/tutores/crear">Crear Un Tutor</a></li>
+            </div>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Ciclo Escolar
+          </a>
+          <ul class="dropdown-menu">
+            <!-- <li><hr class="dropdown-divider"></li> -->
+            <div *ngIf="userRole === 'admin'">
+              <li><a class="dropdown-item" href="/ciclo_escolar">Crear Nuevo Ciclo Escolar</a></li>
+            </div>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Usuarios
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/usuarios">Lista De Usuarios</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <div *ngIf="userRole === 'admin'">
+              <li><a class="dropdown-item" href="/usuarios/crear">Crear Un Usuario</a></li>
+            </div>
+          </ul>
+        </li>
+
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            {{usuario.name}} {{usuario.firstname}} {{usuario.lastname}}
+          <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           {{usuario.name}} {{usuario.firstname}} {{usuario.lastname}}
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <!-- <li><a class="dropdown-item" [routerLink]="['/usuarios/actualizar', usuario.user_id]">Mi Perfil</a></li>
-            <li><a class="dropdown-item" href="/usuarios/actializar/">Configuración</a></li> -->
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+            <!-- <li><a class="dropdown-item" [routerLink]="['/usuarios/actualizar', usuario.user_id]">Mi Perfil</a></li> -->
+            <!-- <li><a class="dropdown-item" href="#">Configuración</a></li> -->
+            <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" (click)="logout()">Cerrar Sesión</a></li>
           </ul>
         </li>
