@@ -37,7 +37,7 @@
   border-color: #d58512;
 }
 
-.table-responsive {
+.table-responsive-sm {
   max-height: 410px; /* Ajusta el valor según tu preferencia */
   overflow-y: auto;  /* Habilita el scroll vertical */
   width: 100%;
