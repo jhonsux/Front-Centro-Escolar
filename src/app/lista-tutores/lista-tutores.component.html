@@ -85,6 +85,40 @@
 
 <div class="mb-4"></div>
 
+<div class="table-responsive">
+  <table class="table table-hover table-sm table-striped table-bordered" *ngIf="tutor.length > 0">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">CURP</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido Pa.</th>
+        <th scope="col">Apellido Ma.</th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Email</th>
+        <th scope="col">Celular</th>
+        <th scope="col">Observacion</th>
+        <th class="col-1">Option</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tutor of tutores | async">
+        <th><i>{{tutor.parent_id}}</i></th>
+        <td><i>{{tutor.name}}</i></td>
+        <td><i>{{tutor.firstname}}</i></td>
+        <td><i>{{tutor.lastname}}</i></td>
+        <td><i>{{tutor.adress}}</i></td>
+        <td><i>{{tutor.telephone}}</i></td>
+        <td><i>{{tutor.email}}</i></td>
+        <td><i>{{tutor.celphone}}</i></td>
+        <td><i>{{tutor.description}}</i></td>
+        <td class="">
+          <a href="#" class="btn btn-warning" [routerLink]="['/tutores/actualizar/', tutor.parent_id]" aria-current="page">EDITAR</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <h2>Lista De Tutores</h2>
 
 <div class="table-responsive">

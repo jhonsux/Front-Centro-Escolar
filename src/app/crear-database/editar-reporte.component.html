@@ -1,15 +1,15 @@
-<div class="container mt-5">
+<!-- <div class="container mt-5">
   <form class="row g-4 p-4 shadow rounded bg-light" action="">
     <h2>Descargar Copia de Seguridad</h2>
-    <p>Haz click en el botón de abajo para descargar una copia de seguridad de la base de datos.</p>
+    <p>Haz click en el botón de abajo para descargar una copia de seguridad de la base de datos.</p> -->
     <!-- Botón estilizado -->
-    <button (click)="downloadBackup()" class="btn btn-primary">
+    <!-- <button (click)="downloadBackup()" class="btn btn-primary">
       Descargar copia de seguridad
     </button>
   </form>
-</div>
+</div> -->
 
-<div class="container mt-5">
+<!-- <div class="container mt-5">
   <form  class="row g-4 p-4 shadow rounded bg-light" (click)="onUpload()" enctype="multipart/form-data">
   <h2>Subir copia de seguridad</h2>
   <p>Haz click en el botón de abajo para subir tu respaldo de la base de datos descargada periodicamente.</p>
@@ -17,12 +17,13 @@
   <input type="file" (change)="onFileSelectedSQL($event)" accept=".sql" />
   <button  class="btn btn-outline-primary" [disabled]="!selectedSQL">Subir Archivo SQL</button>
   </form>
-</div>
+</div> -->
 
 
 <div class="container mt-5">
   <form class="row g-4 p-4 shadow rounded bg-light" (submit)="onSubmit()" enctype="multipart/form-data">
     <h2>Subir Archivo Datos De Alumnos</h2>
+    <p>Haz click en el botón de abajo para subir tu archivo de la tabla de datos.</p>
     <label for="">Buscar Archivo SQL</label>
     <input class="" type="file" (change)="onFileSelectedA($event)" accept=".csv" />
     <button class="btn btn-outline-success" type="submit" [disabled]="!selectedAlumnos">Subir Alumnos CSV</button>
@@ -32,6 +33,7 @@
 <div class="container mt-5">
   <form class="row g-4 p-4 shadow rounded bg-light" (click)="uploadTutorescsv()" enctype="multipart/form-data">
     <h2>Subir Archivo Datos De Tutores</h2>
+    <p>Haz click en el botón de abajo para subir tu archivo de la tabla de datos.</p>
     <label for="">Buscar Archivo CSV</label>
     <input class="" type="file" (change)="onFileSelectedT($event)" accept=".csv" />
     <button class="btn btn-outline-success" type="click" [disabled]="!selectedTutores">Subir Tutores CSV</button>
