@@ -42,7 +42,7 @@
 }
 
 .table-responsive {
-  max-height: 720px; /* Ajusta el valor a la altura que prefieras */
+  max-height: 710px; /* Ajusta el valor a la altura que prefieras */
   overflow-y: auto; /* Añade scroll vertical si excede la altura */
   display: block;
   width: 100%;
