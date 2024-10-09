@@ -64,7 +64,9 @@
           <td>{{ justificante.issue_date | date: 'dd-MM-yyyy' }}</td>
           <td>{{ justificante.description }}</td>
           <td class="text-center">
-            <button href="/" (click)="downloadJustificante(justificante)" class="btn btn-success">Descargar</button>
+            <div *ngIf="userRole === 'admin'">
+             <button href="/" (click)="downloadJustificante(justificante)" class="btn btn-success">Descargar</button>
+            </div>
           </td>
         </tr>
       </tbody>

@@ -90,7 +90,7 @@ const routes: Routes = [
   {
     path: 'justificantes',
     children: [
-      { path: '', component: ListaJustificantesComponent, canActivate: [TutorGuard] },
+      { path: '', component: ListaJustificantesComponent },
       { path: 'crear', component: CrearJustificanteComponent, canActivate: [TutorGuard] },
     ]
   },
