@@ -122,6 +122,8 @@
   </table>
 </div>
 
+<div class="mb-4"></div>
+
 <div *ngIf="alumnosPorSemestre$ | async as alumnosPorSemestre">
   <div *ngFor="let semestre of getSemestres(alumnosPorSemestre)">
     <h2 class="mt-4 mb-3">{{ semestre }} Semestre</h2>
