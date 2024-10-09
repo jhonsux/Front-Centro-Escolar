@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body shadow-sm fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body shadow-sm">
   <div class="container-fluid">
     <a class="navbar-brand" [routerLink]="['/menu']">
       <img src="/assets/imaje.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
@@ -30,9 +30,9 @@
             Tutores
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/tutores">Lista De Tutores</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <div *ngIf="userRole === 'admin'">
+           <div *ngIf="userRole === 'admin'">
+              <li><a class="dropdown-item" href="/tutores">Lista De Tutores</a></li>
+              <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="/tutores/crear">Crear Un Tutor</a></li>
             </div>
           </ul>
@@ -53,9 +53,9 @@
             Usuarios
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/usuarios">Lista De Usuarios</a></li>
-            <li><hr class="dropdown-divider"></li>
             <div *ngIf="userRole === 'admin'">
+              <li><a class="dropdown-item" href="/usuarios">Lista De Usuarios</a></li>
+              <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="/usuarios/crear">Crear Un Usuario</a></li>
             </div>
           </ul>
