@@ -3,6 +3,7 @@ import { AlumnoService } from '../shared/alumno.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AuthService } from '../shared/auth.service';
+import { TutorService } from '../shared/tutor.service';
 
 @Component({
   selector: 'app-crear-alumno',
@@ -22,13 +23,27 @@ export class CrearAlumnoComponent {
     semester_id: '1',
     parent_id: ''
   };
+
+  tutor = {
+    parent_id: '',
+    name: '',
+    firstname: '',
+    lastname: '',
+    adress: '',
+    telephone: 'N/A',
+    email: 'N/A',
+    celphone: 'N/A',
+    description: ''
+  }
+
   id: any;
 
   constructor(
     private alumnoService: AlumnoService,
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private tutorService: TutorService
   ) { }
 
   ngOnInit(): void {
@@ -80,6 +95,7 @@ export class CrearAlumnoComponent {
   }
 
   crearAlumno() {
+    this.alumno.parent_id = this.alumno.student_id + 'PA'
     this.alumnoService.crearAlumno(this.alumno).subscribe(response => {
       console.log('Alumno Creado', response);
       Swal.fire({
@@ -88,13 +104,35 @@ export class CrearAlumnoComponent {
         text: 'El alumno ha sido creado con éxito.',
         showConfirmButton: true
       });
-      this.router.navigate(['/alumnos']);  // Retrocede una página en el historial
+      //this.router.navigate(['/alumnos']);  // Retrocede una página en el historial
     }, error => {
       console.log('Error al crear el Alumno', error);
       Swal.fire({
         icon: 'error',
         title: 'Error',
         text: 'Hubo un error al crear el alumno.',
+        showConfirmButton: true
+      });
+    })
+  }
+
+  crearTutor() {
+    this.tutor.parent_id = this.alumno.parent_id
+    this.tutorService.crearTutor(this.tutor).subscribe(response => {
+      console.log('Tutor Creado', response);
+      Swal.fire({
+        icon: 'success',
+        title: 'Tutor Creado',
+        text: 'El tutor ha sido creado con éxito.',
+        showConfirmButton: true
+      });
+      this.router.navigate(['/tutores']);  // Retrocede una página en el historial
+    }, error => {
+      console.log('Error Al Crear El Tutor', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Hubo un error al crear el tutor.',
         showConfirmButton: true
       });
     })
