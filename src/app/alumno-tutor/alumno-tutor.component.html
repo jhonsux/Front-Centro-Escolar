@@ -91,7 +91,7 @@
 
 
 
-<div class="mb-4"></div>
+<div class="mt-4"></div>
 
 <h2 class="text-center">Detalles Del Alumno</h2>
 <div class="container">
@@ -99,7 +99,7 @@
     <div class="col-md-6">
       <div class="card custom-card">
         <div class="card-body">
-          <div>
+          <div class="mb-4">
             <h5 class="card-title"> {{ alumno.name }} {{ alumno.firstname }} {{ alumno.lastname }}</h5>
           </div>
           <p class="card-text"><strong>CURP: </strong> {{ alumno.student_id }}</p>
@@ -121,7 +121,7 @@
       <div class="col-md-6">
         <div class="card custom-card">
           <div class="card-body">
-            <div>
+            <div class="mt-4">
               <h5 class="card-title">{{ tutor.name }} {{ tutor.firstname }} {{ tutor.lastname }}</h5>
             </div>
             <p class="card-text"><strong>CURP:</strong> {{ tutor.parent_id }}</p>
@@ -133,7 +133,7 @@
             <div>
               <a href="" class="btn btn-danger" [routerLink]="['/tutores/', tutor.parent_id]">Comunicado</a>
             </div>
-            <div *ngIf="userRole === 'admin'">
+            <div *ngIf="userRole === 'admin'" class="mb-4">
               <a href="" class="btn btn-warning" [routerLink]="['/tutores/actualizar', tutor.parent_id]">Actualizar</a>
             </div>
           </div>
@@ -165,7 +165,7 @@
             <td>{{comm.method}}</td>
             <td>{{comm.description}}</td>
             <div *ngIf="userRole === 'admin'">
-              <a href="" [routerLink]="['/comunicados/', comm.communication_id]">BORRAR</a>
+              <button type="button" class="btn btn-outline-danger" (click)="borrarComunicado(comm.communication_id)">BORRAR</button>
             </div>
           </tr>
         </tbody>
@@ -216,7 +216,7 @@
     <div class="mt-5">
       <p>Boton Crear: crea un documento de acuerdos y compromisos que se descarga para impresion.</p>
     </div>
-    <div class="mt-5">
+    <div class="mb-5">
       <p>Boton Comunicado: crea un reporte de comunicación fallido al tutor, en caso de no contestar por algun metodo.</p>
     </div>
     <div class="mt-5">
