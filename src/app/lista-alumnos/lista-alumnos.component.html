@@ -95,14 +95,7 @@
   </div>
 </nav>
 
-
-<div class="mb-4"></div>
-
-<div class="mb-4"></div>
-
-<div class="mb-4"></div>
-
-<div class="table-responsive-sm">
+<div class="table-responsive-sm my-4">
   <table class="table table-hover table-striped table-bordered" *ngIf="alumnos.length > 0">
     <thead class="thead-dark">
       <tr>
@@ -137,14 +130,10 @@
   </table>
 </div>
 
-<div class="mb-4"></div>
-
-<div class="mb-4"></div>
-
-<div *ngIf="alumnosPorSemestre$ | async as alumnosPorSemestre">
+<div *ngIf="alumnosPorSemestre$ | async as alumnosPorSemestre" class="my-4">
   <div *ngFor="let semestre of getSemestres(alumnosPorSemestre)">
-    <h2 class="mt-4 mb-3">{{ semestre }} Semestre</h2>
-    <div class="table-responsive-sm">
+    <h2 class="mt-4">{{ semestre }} Semestre</h2>
+    <div class="table-responsive-sm my-4">
       <table class="table table-hover table-striped table-bordered">
         <thead class="thead-dark">
           <tr>
