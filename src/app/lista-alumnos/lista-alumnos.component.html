@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <a class="navbar-brand" [routerLink]="['/menu']">
       <img src="/assets/imaje.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-      INICIO
+      Menú INICIO
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
@@ -35,6 +35,17 @@
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="/tutores/crear">Crear Un Tutor</a></li>
             </div>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Reportes
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/reportes">Listas</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/reportes/crear">Crear Reporte</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -101,7 +112,7 @@
         <th scope="col">Nombre</th>
         <!-- <th scope="col">Género</th> -->
         <th scope="col">Estatus</th>
-        <th class="col">Grupo</th>
+        <th class="col-1">Grupo</th>
         <th class="col">Semestre</th>
         <!-- <th scope="col" class="d-none d-sm-table-cell">CURP Tutor</th> -->
         <th class="col-1">Opción</th>

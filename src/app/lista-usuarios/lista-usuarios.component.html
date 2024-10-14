@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <a class="navbar-brand" [routerLink]="['/menu']">
       <img src="/assets/imaje.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-      INICIO
+      Menú INICIO
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
@@ -30,11 +30,22 @@
             Tutores
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/tutores">Lista De Tutores</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <div *ngIf="userRole === 'admin'">
+           <div *ngIf="userRole === 'admin'">
+              <li><a class="dropdown-item" href="/tutores">Lista De Tutores</a></li>
+              <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="/tutores/crear">Crear Un Tutor</a></li>
             </div>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Reportes
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/reportes">Listas</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/reportes/crear">Crear Reporte</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -53,14 +64,13 @@
             Usuarios
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/usuarios">Lista De Usuarios</a></li>
-            <li><hr class="dropdown-divider"></li>
             <div *ngIf="userRole === 'admin'">
+              <li><a class="dropdown-item" href="/usuarios">Lista De Usuarios</a></li>
+              <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="/usuarios/crear">Crear Un Usuario</a></li>
             </div>
           </ul>
         </li>
-
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
@@ -90,12 +100,12 @@
     <thead class="thead-dark">
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">nombre</th>
-        <th scope="col">apellido paterno</th>
-        <th scope="col">apellido materno</th>
-        <th scope="col">email</th>
-        <th scope="col">roll</th>
-        <th class="col-1">opcion</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido Pa.</th>
+        <th scope="col">Apellido Ma.</th>
+        <th scope="col">Email</th>
+        <th scope="col">Roll</th>
+        <th class="col-1">Opcion</th>
       </tr>
     </thead>
     <tbody>
@@ -107,7 +117,7 @@
         <td><i>{{usuario.email}}</i></td>
         <td><i>{{usuario.user_types}}</i></td>
         <td class="">
-          <a href="#" class="btn btn-warning" [routerLink]="['/usuarios/actualizar/', usuario.user_id]" aria-current="page">EDITAR</a>
+          <a href="#" class="btn btn-warning" [routerLink]="['/usuarios/actualizar/', usuario.user_id]" aria-current="page">ACTUALIZAR</a>
         </td>
       </tr>
     </tbody>

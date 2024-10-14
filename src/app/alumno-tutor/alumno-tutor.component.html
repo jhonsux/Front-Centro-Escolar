@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body shadow-sm fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-body shadow-sm">
   <div class="container-fluid">
     <a class="navbar-brand" [routerLink]="['/menu']">
       <img src="/assets/imaje.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-      INICIO
+      Menú INICIO
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
@@ -30,12 +30,23 @@
             Tutores
           </a>
           <ul class="dropdown-menu">
-            <div *ngIf="userRole === 'admin'">
-               <li><a class="dropdown-item" href="/tutores">Lista De Tutores</a></li>
-               <li><hr class="dropdown-divider"></li>
-               <li><a class="dropdown-item" href="/tutores/crear">Crear Un Tutor</a></li>
-             </div>
-           </ul>
+           <div *ngIf="userRole === 'admin'">
+              <li><a class="dropdown-item" href="/tutores">Lista De Tutores</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/tutores/crear">Crear Un Tutor</a></li>
+            </div>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Reportes
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/reportes">Listas</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/reportes/crear">Crear Reporte</a></li>
+          </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -60,7 +71,6 @@
             </div>
           </ul>
         </li>
-
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
@@ -80,6 +90,7 @@
 </nav>
 
 
+
 <div class="mb-4"></div>
 
 <h2 class="text-center">Detalles Del Alumno</h2>
@@ -88,12 +99,14 @@
     <div class="col-md-6">
       <div class="card custom-card">
         <div class="card-body">
-          <h5 class="card-title">{{ alumno.name }} {{ alumno.firstname }} {{ alumno.lastname }}</h5>
-          <p class="card-text"><strong>ID Alumno:</strong> {{ alumno.student_id }}</p>
-          <p class="card-text"><strong>Género:</strong> {{ alumno.sex }}</p>
-          <p class="card-text"><strong>Estatus:</strong> {{ alumno.status }}</p>
-          <p class="card-text"><strong>Grupo:</strong> {{ alumno.group_id }}</p>
-          <p class="card-text"><strong>Semestre:</strong> {{ alumno.semester_id }}</p>
+          <div>
+            <h5 class="card-title"> {{ alumno.name }} {{ alumno.firstname }} {{ alumno.lastname }}</h5>
+          </div>
+          <p class="card-text"><strong>CURP: </strong> {{ alumno.student_id }}</p>
+          <p class="card-text"><strong>Género: </strong> {{ alumno.sex }}</p>
+          <p class="card-text"><strong>Estatus: </strong> {{ alumno.status }}</p>
+          <p class="card-text"><strong>Grupo: </strong> {{ alumno.group_id }}</p>
+          <p class="card-text"><strong>Semestre: </strong> {{ alumno.semester_id }}</p>
           <div *ngIf="userRole === 'admin'">
             <a href="" class="btn btn-warning" [routerLink]="['/alumnos/actualizar', alumno.student_id]">Actualizar</a>
           </div>
@@ -108,14 +121,18 @@
       <div class="col-md-6">
         <div class="card custom-card">
           <div class="card-body">
-            <h5 class="card-title">{{ tutor.name }} {{ tutor.firstname }} {{ tutor.lastname }}</h5>
-            <p class="card-text"><strong>ID Tutor:</strong> {{ tutor.parent_id }}</p>
+            <div>
+              <h5 class="card-title">{{ tutor.name }} {{ tutor.firstname }} {{ tutor.lastname }}</h5>
+            </div>
+            <p class="card-text"><strong>CURP:</strong> {{ tutor.parent_id }}</p>
             <p class="card-text"><strong>Direccion:</strong> {{ tutor.adress }}</p>
             <p class="card-text"><strong>Telefono:</strong> {{ tutor.telephone }}</p>
             <p class="card-text"><strong>Email:</strong> {{ tutor.email }}</p>
             <p class="card-text"><strong>Celular:</strong> {{ tutor.celphone }}</p>
             <p class="card-text"><strong>Description:</strong> {{ tutor.description }}</p>
-            <a href="" class="btn btn-danger" [routerLink]="['/tutores/', tutor.parent_id]">Comunicado</a>
+            <div>
+              <a href="" class="btn btn-danger" [routerLink]="['/tutores/', tutor.parent_id]">Comunicado</a>
+            </div>
             <div *ngIf="userRole === 'admin'">
               <a href="" class="btn btn-warning" [routerLink]="['/tutores/actualizar', tutor.parent_id]">Actualizar</a>
             </div>
@@ -135,9 +152,10 @@
         <thead class="table-dark">
           <tr>
             <th scope="scope">#</th>
-            <th scope="scope">FECHA</th>
-            <th scope="scope">MÉTODO</th>
-            <th scope="col">DESCRIPCIÓN</th>
+            <th scope="scope">Fecha</th>
+            <th scope="scope">Metodo</th>
+            <th scope="col">Descripción</th>
+            <th class="col-1">Opción</th>
           </tr>
         </thead>
         <tbody>
@@ -146,6 +164,9 @@
             <td>{{comm.date | date: 'dd-MM-yyyy'}}</td>
             <td>{{comm.method}}</td>
             <td>{{comm.description}}</td>
+            <div *ngIf="userRole === 'admin'">
+              <a href="" [routerLink]="['/comunicados/', comm.communication_id]">BORRAR</a>
+            </div>
           </tr>
         </tbody>
       </table>
@@ -160,11 +181,11 @@
         <thead class="table-dark">
           <tr>
             <th scope="col">#</th>
-            <th scope="col">INCIDENCIA</th>
-            <th scope="col">CREADO POR</th>
-            <th scope="col">DESCRIPCIÓN</th>
+            <th scope="col">Incidencia</th>
+            <th scope="col">Creado Por</th>
+            <th scope="col">Descripción</th>
             <th scope="col">Reportado</th>
-            <th scope="col">FECHA</th>
+            <th scope="col">Fecha</th>
             <th class="col-1">Opción</th>
           </tr>
         </thead>
@@ -180,7 +201,7 @@
               <div *ngIf="userRole === 'admin'">
                 <a *ngIf="reporte.justificado !== 'Si'" href="" class="btn btn-success"
                   [routerLink]="['/reportes/', reporte.report_id]">
-                  Descargar
+                  CREAR
                 </a>
               </div>
 
@@ -192,4 +213,12 @@
     </div>
 
 
-    <div class="mt-5"></div>
+    <div class="mt-5">
+      <p>Boton Crear: crea un documento de acuerdos y compromisos que se descarga para impresion.</p>
+    </div>
+    <div class="mt-5">
+      <p>Boton Comunicado: crea un reporte de comunicación fallido al tutor, en caso de no contestar por algun metodo.</p>
+    </div>
+    <div class="mt-5">
+      <p>Boton Actualizar: Actualiza informacion sobre los datos personales de importancia para la institución.</p>
+    </div>

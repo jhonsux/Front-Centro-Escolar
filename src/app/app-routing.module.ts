@@ -15,7 +15,7 @@ import { ListaReportesComponent } from './lista-reportes/lista-reportes.componen
 import { CrearJustificanteComponent } from './crear-justificante/crear-justificante.component';
 import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
 import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
-import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
+// import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 import { CrearIncidenciaComponent } from './lista-graduados/crear-incidencia.component';
 import { ListaJustificantesComponent } from './lista-justificantes/lista-justificantes.component';
 import { BuscarAlumnoComponent } from './crear-ciclo/buscar-alumno.component';
@@ -43,28 +43,12 @@ const routes: Routes = [
   {
     path: 'tutores',
     children: [
-      {
-        path: '',
-        component: ListaTutoresComponent,
-        canActivate: [TutorGuard]
-      },
-      {
-        path: 'crear',
-        component: CrearTutorComponent,
-        canActivate: [TutorGuard]
-      },
-      {
-        path: 'actualizar/:id',
-        component: EditarTutorComponent,
-        canActivate: [TutorGuard]
-      },
-      {
-        path: ':id',
-        component: TutorComunicacionComponent
-      },
+      { path: '', component: ListaTutoresComponent, canActivate: [TutorGuard] },
+      { path: 'crear', component: CrearTutorComponent, canActivate: [TutorGuard] },
+      { path: 'actualizar/:id', component: EditarTutorComponent, canActivate: [TutorGuard] },
+      { path: ':id', component: TutorComunicacionComponent },
     ]
-  }
-  ,
+  },
 
   // Reportes
   {
@@ -100,6 +84,7 @@ const routes: Routes = [
   { path: 'comunicados/crear', component: TutorComunicacionComponent },
 
   { path: 'ciclo_escolar', component: BuscarAlumnoComponent, canActivate: [TutorGuard] },
+
   { path: 'upload', component: EditarReporteComponent, canActivate: [TutorGuard] },
 
   // Default and wildcard routes

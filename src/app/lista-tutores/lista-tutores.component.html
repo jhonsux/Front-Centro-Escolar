@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <a class="navbar-brand" [routerLink]="['/menu']">
       <img src="/assets/imaje.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-      INICIO
+      Menú INICIO
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
@@ -35,6 +35,17 @@
             <div *ngIf="userRole === 'admin'">
               <li><a class="dropdown-item" href="/tutores/crear">Crear Un Tutor</a></li>
             </div>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Reportes
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/reportes">Listas</a></li>
+
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/reportes/crear">Crear Reporte</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -113,7 +124,7 @@
         <td><i>{{tutor.celphone}}</i></td>
         <td><i>{{tutor.description}}</i></td>
         <td class="">
-          <a href="#" class="btn btn-warning" [routerLink]="['/tutores/actualizar/', tutor.parent_id]" aria-current="page">EDITAR</a>
+          <a href="#" class="btn btn-warning" [routerLink]="['/tutores/actualizar/', tutor.parent_id]" aria-current="page">ACTUALIZAR</a>
         </td>
       </tr>
     </tbody>
@@ -150,7 +161,7 @@
         <td><i>{{tutor.celphone}}</i></td>
         <td><i>{{tutor.description}}</i></td>
         <td class="">
-          <a href="#" class="btn btn-warning" [routerLink]="['/tutores/actualizar/', tutor.parent_id]" aria-current="page">EDITAR</a>
+          <a href="#" class="btn btn-warning" [routerLink]="['/tutores/actualizar/', tutor.parent_id]" aria-current="page">ACTUALIZAR</a>
         </td>
       </tr>
     </tbody>

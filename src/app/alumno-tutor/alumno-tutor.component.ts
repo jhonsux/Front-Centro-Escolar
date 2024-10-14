@@ -81,6 +81,40 @@ export class AlumnoTutorComponent implements OnInit {
     }
 
   }
+  borrarComunicado(id: string) {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "¡No podrás revertir esto!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, borrar!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.comunicadoService.borrarComunicado(id).subscribe(
+          data => {
+            Swal.fire(
+              'Borrado!',
+              'El Comunicado ha sido borrado.',
+              'success'
+            );
+            // window.location.href = '/alumnos';
+            window.location.reload
+          },
+          error => {
+            console.error('Error al borrar el alumno', error);
+            Swal.fire(
+              'Error!',
+              'Hubo un error al borrar el alumno.',
+              'error'
+            );
+          }
+        );
+      }
+    });
+  }
 
   logout() {
     Swal.fire({

@@ -24,5 +24,8 @@ export class ComunicadoService {
     return this.http.get<ComunicadosModel[]>(`${this.BASE_URL}/comunicados/${id}`)
   }
 
+  borrarComunicado(id: string) {
+    return this.http.delete<string>(`${this.BASE_URL}/comunicados/${id}`)
+  }
 
 }
