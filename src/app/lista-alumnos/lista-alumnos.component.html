@@ -113,7 +113,7 @@
         <!-- <th scope="col">Género</th> -->
         <th scope="col">Estatus</th>
         <th class="col-1">Grupo</th>
-        <th class="col">Semestre</th>
+        <th class="col-1">Semestre</th>
         <!-- <th scope="col" class="d-none d-sm-table-cell">CURP Tutor</th> -->
         <th class="col-1">Opción</th>
       </tr>
@@ -162,7 +162,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let alumno of alumnosPorSemestre[semestre]">
-            <th scope="row" class="d-none d-sm-table-cell">{{ alumno.student_id }}</th>
+            <td scope="row" class="d-none d-sm-table-cell">{{ alumno.student_id }}</td>
             <td>{{ alumno.firstname }}</td>
             <td>{{ alumno.lastname }}</td>
             <td>{{ alumno.name }}</td>

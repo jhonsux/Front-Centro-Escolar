@@ -91,7 +91,7 @@
 
 
 
-<div class="mt-4"></div>
+<div class="mb-4"></div>
 
 <h2 class="text-center">Detalles Del Alumno</h2>
 <div class="container">
@@ -121,7 +121,7 @@
       <div class="col-md-6">
         <div class="card custom-card">
           <div class="card-body">
-            <div class="mt-4">
+            <div class="mb-4">
               <h5 class="card-title">{{ tutor.name }} {{ tutor.firstname }} {{ tutor.lastname }}</h5>
             </div>
             <p class="card-text"><strong>CURP:</strong> {{ tutor.parent_id }}</p>
@@ -130,10 +130,10 @@
             <p class="card-text"><strong>Email:</strong> {{ tutor.email }}</p>
             <p class="card-text"><strong>Celular:</strong> {{ tutor.celphone }}</p>
             <p class="card-text"><strong>Description:</strong> {{ tutor.description }}</p>
-            <div>
+            <div class="mb-4">
               <a href="" class="btn btn-danger" [routerLink]="['/tutores/', tutor.parent_id]">Comunicado</a>
             </div>
-            <div *ngIf="userRole === 'admin'" class="mb-4">
+            <div *ngIf="userRole === 'admin'" class="mt-4">
               <a href="" class="btn btn-warning" [routerLink]="['/tutores/actualizar', tutor.parent_id]">Actualizar</a>
             </div>
           </div>
@@ -216,7 +216,7 @@
     <div class="mt-5">
       <p>Boton Crear: crea un documento de acuerdos y compromisos que se descarga para impresion.</p>
     </div>
-    <div class="mb-5">
+    <div class="mt-5">
       <p>Boton Comunicado: crea un reporte de comunicación fallido al tutor, en caso de no contestar por algun metodo.</p>
     </div>
     <div class="mt-5">
