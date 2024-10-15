@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <a class="navbar-brand" [routerLink]="['/menu']">
       <img src="/assets/imaje.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-      Menú INICIO
+      Menú Inicio
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
@@ -90,9 +90,9 @@
 </nav>
 
 
-<div class="mb-5"></div>
+<div class="mt-5"></div>
 
-<div class="container mt-5">
+<div class="container my-5">
   <h2 class="mb-4 text-center">Lista De Incidencias</h2>
   <div class="table-responsive">
     <table class="table table-striped table-hover table-bordered">
@@ -116,6 +116,9 @@
           <td class="text-center">
             <div *ngIf="userRole === 'admin'">
              <button href="/" (click)="downloadJustificante(justificante)" class="btn btn-success">Descargar</button>
+            </div>
+            <div *ngIf="userRole === 'admin'">
+              <button href="/" (click)="borrarJustificante(justificante.justification_id)" class="btn btn-danger">Borrar</button>
             </div>
           </td>
         </tr>

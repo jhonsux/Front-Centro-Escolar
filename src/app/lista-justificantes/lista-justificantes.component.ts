@@ -119,6 +119,53 @@ export class ListaJustificantesComponent implements OnInit {
     });
   }
 
+  borrarJustificante(id: string) {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "¡No podrás revertir esto!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, borrar!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.justificanteService.borrarJustificante(id).subscribe(
+          data => {
+            Swal.fire(
+              'Borrado!',
+              'El Justificante ha sido borrado.',
+              'success'
+            );
+            this.actualizarReporte()
+            // window.location.href = '/alumnos';
+            window.location.reload()
+          },
+          error => {
+            console.error('Error al borrar el alumno', error);
+            Swal.fire(
+              'Error!',
+              'Hubo un error al borrar el comunicado.',
+              'error'
+            );
+          }
+        );
+      }
+    });
+  }
+
+  actualizarReporte() {
+    this.reporte.justificado = 'no'
+    this.reporteService.actualizarReporte(this.reporte).subscribe(data => {
+      console.log('Reporte Actualizado', data);
+      // Aquí se muestra el mensaje de éxito solo si la actualización es exitosa
+    }, error => {
+      console.log('Error al actualizar el reporte', error, this.reporte);
+
+    });
+  }
+
   logout() {
     Swal.fire({
       title: '¿Estás seguro?',

@@ -43,4 +43,8 @@ export class JustificanteService {
     return this.http.get<JustificantesModel[]>(`${this.BASE_URL}/justificantes`, { headers});
   }
 
+  borrarJustificante(id: string) {
+    return this.http.delete<string>(`${this.BASE_URL}/justificantes/${id}`)
+  }
+
 }

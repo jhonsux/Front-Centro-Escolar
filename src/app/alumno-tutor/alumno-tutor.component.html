@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <a class="navbar-brand" [routerLink]="['/menu']">
       <img src="/assets/imaje.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-      Menú INICIO
+      Menú Inicio
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
@@ -101,7 +101,7 @@
       <div class="card custom-card">
         <div class="card-body">
           <div class="mb-4">
-            <h5 class="card-title"> {{ alumno.name }} {{ alumno.firstname }} {{ alumno.lastname }}</h5>
+            <h5 class="card-title">Nombre: {{ alumno.name }} {{ alumno.firstname }} {{ alumno.lastname }}</h5>
           </div>
           <p class="card-text"><strong>CURP: </strong> {{ alumno.student_id }}</p>
           <p class="card-text"><strong>Género: </strong> {{ alumno.sex }}</p>
@@ -126,7 +126,7 @@
         <div class="card custom-card">
           <div class="card-body">
             <div class="mb-4">
-              <h5 class="card-title">{{ tutor.name }} {{ tutor.firstname }} {{ tutor.lastname }}</h5>
+              <h5 class="card-title">Nombre: {{ tutor.name }} {{ tutor.firstname }} {{ tutor.lastname }}</h5>
             </div>
             <p class="card-text"><strong>CURP:</strong> {{ tutor.parent_id }}</p>
             <p class="card-text"><strong>Direccion:</strong> {{ tutor.adress }}</p>
@@ -208,7 +208,6 @@
                   CREAR
                 </a>
               </div>
-
             </td>
           </tr>
         </tbody>

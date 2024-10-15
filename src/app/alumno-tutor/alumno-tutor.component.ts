@@ -79,8 +79,8 @@ export class AlumnoTutorComponent implements OnInit {
         window.location.href = '/login';
       });
     }
-
   }
+  
   borrarComunicado(id: string) {
     Swal.fire({
       title: '¿Estás seguro?',
@@ -101,13 +101,13 @@ export class AlumnoTutorComponent implements OnInit {
               'success'
             );
             // window.location.href = '/alumnos';
-            window.location.reload
+            window.location.reload()
           },
           error => {
             console.error('Error al borrar el alumno', error);
             Swal.fire(
               'Error!',
-              'Hubo un error al borrar el alumno.',
+              'Hubo un error al borrar el comunicado.',
               'error'
             );
           }
