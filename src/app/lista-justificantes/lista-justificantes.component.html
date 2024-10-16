@@ -103,7 +103,8 @@
           <th scope="col">Nombre</th>
           <th scope="col">Fecha de Creación</th>
           <th scope="col">Acuerdos y Compromisos</th>
-          <th scope="col">Opcion</th>
+          <th scope="col">Descargar</th>
+          <th scope="col">Borrar</th>
         </tr>
       </thead>
       <tbody>
@@ -117,6 +118,8 @@
             <div *ngIf="userRole === 'admin'">
              <button href="/" (click)="downloadJustificante(justificante)" class="btn btn-success">Descargar</button>
             </div>
+          </td>
+          <td>
             <div *ngIf="userRole === 'admin'" class="my-2">
               <button href="/" (click)="borrarJustificante(justificante.justification_id)" class="btn btn-outline-danger">Borrar</button>
             </div>
