@@ -36,7 +36,11 @@ export class ListaJustificantesComponent implements OnInit {
 
   ngOnInit(): void {
     this.justificantes = this.justificanteService.obtenerJustificantes();
-    console.log(this.justificantes)
+    console.log(this.justificantes);
+
+    this.justificanteService.obtenerJustificantes().subscribe(data => {
+      console.log(data);
+    })
 
     this.user_id = this.authService.getUserId();
     this.usuarioService.obtenerUsuario(this.user_id).subscribe(data => {
@@ -131,6 +135,7 @@ export class ListaJustificantesComponent implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
+        console.log('ID del justificante a borrar:', id);
         this.justificanteService.borrarJustificante(id).subscribe(
           data => {
             Swal.fire(
@@ -156,7 +161,7 @@ export class ListaJustificantesComponent implements OnInit {
   }
 
   actualizarReporte() {
-    this.reporte.justificado = 'no'
+    this.reporte.justificado = 'NO'
     this.reporteService.actualizarReporte(this.reporte).subscribe(data => {
       console.log('Reporte Actualizado', data);
       // Aquí se muestra el mensaje de éxito solo si la actualización es exitosa
