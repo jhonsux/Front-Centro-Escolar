@@ -66,7 +66,7 @@ const routes: Routes = [
     children: [
       { path: '', component: ListaUsuariosComponent, canActivate: [TutorGuard] },
       { path: 'crear', component: CrearUsuarioComponent, canActivate: [TutorGuard]},
-      { path: 'actualizar/:id', component: EditarUsuarioComponent, canActivate: [TutorGuard] },
+      { path: 'actualizar/:id', component: CrearUsuarioComponent, canActivate: [TutorGuard] },
     ]
   },
 
