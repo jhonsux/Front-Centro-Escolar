@@ -23,10 +23,10 @@ export class CrearUsuarioComponent {
   ngOnInit(): void {
 
     this.id = this.route.snapshot.params['id']
-    // this.usuarioService.obtenerUsuario(this.id).subscribe(data => {
-    //     this.usuario = data[0];
-    //     console.log(this.usuario)
-    // })
+    this.usuarioService.obtenerUsuario(this.id).subscribe(data => {
+        this.usuario = data[0];
+        console.log(this.usuario)
+    })
 // Verificar si el token ya está expirado al cargar la aplicación
     if (this.authService.isTokenExpired()) {
       Swal.fire({
