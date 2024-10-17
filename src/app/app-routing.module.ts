@@ -15,7 +15,7 @@ import { ListaReportesComponent } from './lista-reportes/lista-reportes.componen
 import { CrearJustificanteComponent } from './crear-justificante/crear-justificante.component';
 import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
 import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
-// import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
+import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 import { CrearIncidenciaComponent } from './lista-graduados/crear-incidencia.component';
 import { ListaJustificantesComponent } from './lista-justificantes/lista-justificantes.component';
 import { BuscarAlumnoComponent } from './crear-ciclo/buscar-alumno.component';
@@ -66,7 +66,7 @@ const routes: Routes = [
     children: [
       { path: '', component: ListaUsuariosComponent, canActivate: [TutorGuard] },
       { path: 'crear', component: CrearUsuarioComponent, canActivate: [TutorGuard]},
-      { path: 'actualizar/:id', component: CrearUsuarioComponent, canActivate: [TutorGuard] },
+      { path: 'actualizar/:id', component: EditarUsuarioComponent, canActivate: [TutorGuard] },
     ]
   },
 

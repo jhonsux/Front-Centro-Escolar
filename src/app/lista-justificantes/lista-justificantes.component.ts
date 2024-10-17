@@ -39,7 +39,7 @@ export class ListaJustificantesComponent implements OnInit {
     console.log(this.justificantes);
 
     this.justificanteService.obtenerJustificantes().subscribe(data => {
-      console.log(data);
+      // console.log(data);
     })
 
     this.user_id = this.authService.getUserId();
