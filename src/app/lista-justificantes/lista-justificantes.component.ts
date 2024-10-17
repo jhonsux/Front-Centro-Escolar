@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { forkJoin, Observable } from 'rxjs';
-import { JustificantesModel } from '../shared/alumno.model';
+import { JustificantesModel, ReportesModel } from '../shared/alumno.model';
 import { JustificanteService } from '../shared/justificante.service';
 import { ReporteService } from '../shared/reporte.service';
 import { Router } from '@angular/router';
@@ -135,7 +135,7 @@ export class ListaJustificantesComponent implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        console.log('ID del justificante a borrar:', id);
+        this.actualizarReporte();
         this.justificanteService.borrarJustificante(id).subscribe(
           data => {
             Swal.fire(
@@ -143,15 +143,14 @@ export class ListaJustificantesComponent implements OnInit {
               'El Justificante ha sido borrado.',
               'success'
             );
-            this.actualizarReporte()
             // window.location.href = '/alumnos';
             window.location.reload()
           },
           error => {
-            console.error('Error al borrar el alumno', error);
+            console.error('Error al borrar el Justificado', error);
             Swal.fire(
               'Error!',
-              'Hubo un error al borrar el comunicado.',
+              'Hubo un error al borrar el Justificado.',
               'error'
             );
           }
@@ -161,13 +160,13 @@ export class ListaJustificantesComponent implements OnInit {
   }
 
   actualizarReporte() {
+    this.reporte.report_id = this.id
     this.reporte.justificado = 'NO'
     this.reporteService.actualizarReporte(this.reporte).subscribe(data => {
       console.log('Reporte Actualizado', data);
       // Aquí se muestra el mensaje de éxito solo si la actualización es exitosa
     }, error => {
       console.log('Error al actualizar el reporte', error, this.reporte);
-
     });
   }
 

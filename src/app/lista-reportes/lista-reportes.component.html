@@ -103,8 +103,8 @@
           <th scope="col">INCIDENCIA</th>
           <th scope="col">CREADO POR</th>
           <th scope="col">DESCRIPCIÓN</th>
-           <th scope="col">JUSTIFICADO</th>
-           <th scope="col">Fecha De Creación</th>
+          <th scope="col">JUSTIFICADO</th>
+          <th scope="col">Fecha De Creación</th>
           <th scope="col" class="text-center">OPCIÓN</th>
         </tr>
       </thead>
@@ -119,6 +119,11 @@
           <td>{{ reporte.date | date: 'dd-MM-yyyy' }}</td>
           <td class="text-center">
             <a href="" class="btn btn-success" [routerLink]="['/alumnos/', reporte.student_id]">Alumno</a>
+          </td>
+          <td>
+            <div *ngIf="userRole === 'admin'">
+              <button href="/" (click)="borrarReporte(reporte.report_id)" class="btn btn-outline-danger">Borrar</button>
+            </div>
           </td>
         </tr>
       </tbody>

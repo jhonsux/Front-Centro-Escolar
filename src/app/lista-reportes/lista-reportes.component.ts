@@ -54,17 +54,52 @@ export class ListaReportesComponent implements OnInit {
     }
   }
 
+  // borrarReporte(id: string) {
+  //   if (confirm('Seguro que deseas BORAR este Reporte?'))
+  //     this.reportesService.borrarReporte(id).subscribe(data => {
+  //       console.log('Reporte borrado')
+  //       alert('Reporte Borrado')
+  //       this.reportes = this.reportesService.obtenerReportes()
+  //     },error => {
+  //     console.error('Error al borrar el Reporte', error);
+  //     alert('Hubo un error al borrar el Reporte');
+  //   }
+  //  );
+  // }
+
   borrarReporte(id: string) {
-    if (confirm('Seguro que deseas BORAR este Reporte?'))
-      this.reportesService.borrarReporte(id).subscribe(data => {
-        console.log('Reporte borrado')
-        alert('Reporte Borrado')
-        this.reportes = this.reportesService.obtenerReportes()
-      },error => {
-      console.error('Error al borrar el Reporte', error);
-      alert('Hubo un error al borrar el Reporte');
-    }
-   );
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "¡No podrás revertir esto!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, borrar!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.reportesService.borrarReporte(id).subscribe(
+          data => {
+            Swal.fire(
+              'Borrado!',
+              'El reporte ha sido borrado.',
+              'success'
+            );
+            // window.location.href = '/alumnos';
+            window.location.reload()
+          },
+          error => {
+            console.error('Error al borrar el Reporte', error);
+            Swal.fire(
+              'Error!',
+              'Hubo un error al borrar el Reporte.',
+              'error'
+            );
+          }
+        );
+      }
+    });
   }
 
   logout() {

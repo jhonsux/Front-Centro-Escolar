@@ -80,7 +80,7 @@ export class AlumnoTutorComponent implements OnInit {
       });
     }
   }
-  
+
   borrarComunicado(id: string) {
     Swal.fire({
       title: '¿Estás seguro?',
@@ -104,7 +104,7 @@ export class AlumnoTutorComponent implements OnInit {
             window.location.reload()
           },
           error => {
-            console.error('Error al borrar el alumno', error);
+            console.error('Error al borrar el comunicado', error);
             Swal.fire(
               'Error!',
               'Hubo un error al borrar el comunicado.',
