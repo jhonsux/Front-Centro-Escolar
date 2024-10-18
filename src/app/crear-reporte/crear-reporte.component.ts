@@ -18,7 +18,7 @@ export class CrearReporteComponent implements OnInit {
   alumnoSeleccionado: any = null;  // Cambiamos a un objeto
 
   criterioBusquedaIncidencia: string = '';
-  incidencias: any = {};
+  incidencias: any[] = [];
   incidenciaSeleccionada: any = null;  // Cambiamos a un objeto
 
   reporte: any = {
@@ -42,7 +42,9 @@ export class CrearReporteComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.incidencias = this.incidenciaService.obtenerIncidencias()
+    this.incidenciaService.obtenerIncidencias().subscribe(data => {
+      this.incidencias = data
+    })
     console.log(this.incidencias)
     this.reporte.user_id = this.authService.getUserId();
     if (this.authService.isTokenExpired()) {
