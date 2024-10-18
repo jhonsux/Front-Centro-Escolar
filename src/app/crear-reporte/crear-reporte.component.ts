@@ -13,14 +13,13 @@ import { Router } from '@angular/router';
 })
 export class CrearReporteComponent implements OnInit {
 
-
   criterio: string = ''
   alumnos: any[] = []
-  alumnoSeleccionado: string = '';
+  alumnoSeleccionado: any = null;  // Cambiamos a un objeto
 
   criterioBusquedaIncidencia: string = '';
   incidencias: any[] = [];
-  incidenciaSeleccionada: string = '';
+  incidenciaSeleccionada: any = null;  // Cambiamos a un objeto
 
   reporte: any = {
     student_id: '',
@@ -39,11 +38,11 @@ export class CrearReporteComponent implements OnInit {
     private router: Router
   ) {
     const today = new Date();
-    this.reporte.date = today.toISOString().split('T')[0]}
+    this.reporte.date = today.toISOString().split('T')[0];
+  }
 
   ngOnInit(): void {
     this.reporte.user_id = this.authService.getUserId();
-    // Verificar si el token ya está expirado al cargar la aplicación
     if (this.authService.isTokenExpired()) {
       Swal.fire({
         icon: 'warning',
@@ -52,7 +51,6 @@ export class CrearReporteComponent implements OnInit {
         confirmButtonText: 'Aceptar'
       }).then(() => {
         this.authService.logout();
-        // Redirigir a la página de inicio de sesión
         window.location.href = '/login';
       });
     }
@@ -61,9 +59,8 @@ export class CrearReporteComponent implements OnInit {
   buscarAlumno() {
     this.alumnoService.buscarAlumno(this.criterio).subscribe(
       data => {
-        this.alumnos = data;
+        this.alumnos = data.map((alumno: any) => ({ ...alumno, seleccionado: false }));
 
-        // Verifica si el resultado está vacío
         if (this.alumnos.length === 0) {
           Swal.fire({
             icon: 'warning',
@@ -75,7 +72,6 @@ export class CrearReporteComponent implements OnInit {
       },
       error => {
         if (error.status === 404) {
-          // Muestra el mensaje de alumno no encontrado
           Swal.fire({
             icon: 'warning',
             title: 'Alumno no encontrado',
@@ -83,7 +79,6 @@ export class CrearReporteComponent implements OnInit {
             confirmButtonText: 'OK'
           });
         } else {
-          // Muestra un mensaje de error general
           Swal.fire({
             icon: 'error',
             title: 'Error',
@@ -95,15 +90,15 @@ export class CrearReporteComponent implements OnInit {
     );
   }
 
-  seleccionarAlumno(id: string) {
-    this.reporte.student_id = id
+  seleccionarAlumno(alumno: any) {
+    this.alumnoSeleccionado = alumno.seleccionado ? alumno : null;
+    this.reporte.student_id = this.alumnoSeleccionado ? alumno.student_id : '';
   }
 
   buscarIncidencia() {
     this.incidenciaService.buscarIncidencia(this.criterioBusquedaIncidencia).subscribe(
       data => {
-        this.incidencias = data;
-        console.log(data)
+        this.incidencias = data.map((incidencia: any) => ({ ...incidencia, seleccionado: false }));
       },
       error => {
         console.error('Error al buscar incidencia:', error);
@@ -111,30 +106,28 @@ export class CrearReporteComponent implements OnInit {
     );
   }
 
-  seleccionarIncidencia(id: string) {
-    this.reporte.type_id = id
-
+  seleccionarIncidencia(incidencia: any) {
+    this.incidenciaSeleccionada = incidencia.seleccionado ? incidencia : null;
+    this.reporte.type_id = this.incidenciaSeleccionada ? incidencia.type_id : '';
   }
 
   crearReporte() {
     this.reporteService.crearReporte(this.reporte).subscribe(response => {
-      console.log('Reporte Creado', response);
       Swal.fire({
         icon: 'success',
         title: 'Reporte Creado',
         text: 'El reporte ha sido creado con éxito.',
         showConfirmButton: true
       });
-      this.router.navigate(['/reportes']);  // Retrocede una página en el historial
+      this.router.navigate(['/reportes']);
     }, error => {
-      console.log('Error al crear Reporte', error);
       Swal.fire({
         icon: 'error',
         title: 'Error',
         text: 'Hubo un error al crear el reporte.',
         showConfirmButton: true
       });
-    })
+    });
   }
 
 }
