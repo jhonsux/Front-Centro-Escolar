@@ -18,7 +18,7 @@
     <table class="table table-hover table-striped table-bordered">
       <thead class="table-success">
         <tr>
-          <th>Seleccionar</th>
+          <th>Selecc</th>
           <th>CURP</th>
           <th>Nombre</th>
           <th>Apellido Paterno</th>
@@ -46,8 +46,8 @@
   </div>
 
   <!-- ID del alumno seleccionado -->
-  <div class="input-group col-md-4 mt-3" *ngIf="reporte.student_id">
-    <span class="input-group-text">Alumno: {{reporte.name}}</span>
+  <div class="input-group my-4" *ngIf="reporte.student_id">
+    <span class="input-group-text">Alumno:</span>
     <input class="form-control" type="text" id="alumnoId" [value]="reporte.student_id" readonly>
   </div>
  </div>
@@ -55,13 +55,13 @@
 <div class="container my-4">
   <!-- Tabla de incidencias con checkboxes para seleccionar -->
   <div class="table-responsive-sm my-4">
-    <table class="table table-hover table-striped">
+    <table class="table table-hover table-striped table-bordered">
       <thead class="table-success">
         <tr>
-          <th>Seleccionar</th>
-          <th>ID</th>
-          <th>Tipo</th>
-          <th>Descripción</th>
+          <th>Selecc</th>
+          <th>Num</th>
+          <th>Tipo De Incidencia</th>
+          <th>Descripción Detallada</th>
         </tr>
       </thead>
       <tbody>

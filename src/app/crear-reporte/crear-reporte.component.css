@@ -30,7 +30,7 @@ h2 {
 }
 
 .table-responsive-sm {
-  max-height: 410px; /* Ajusta el valor según tu preferencia */
+  max-height: 400px; /* Ajusta el valor según tu preferencia */
   overflow-y: auto;  /* Habilita el scroll vertical */
   width: 100%;
   overflow-x: auto;

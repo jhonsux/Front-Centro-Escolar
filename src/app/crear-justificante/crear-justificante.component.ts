@@ -79,14 +79,14 @@ export class CrearJustificanteComponent implements OnInit {
         text: 'El justificante ha sido creado con éxito.',
         showConfirmButton: true
       });
-      window.location.reload();  // Retrocede una página en el historial
+      window.location.href = '/Justificantes';// Retrocede una página en el historial
     }, error => {
       console.log('Error al crear el Justificante', error);
       //alert('Hubo un error al crear el Justificante');
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: 'Hubo un error al crear el justificante.',
+        text: 'Hubo un error al crear el Justificante.',
         showConfirmButton: true
       });
     })
@@ -118,33 +118,49 @@ export class CrearJustificanteComponent implements OnInit {
     doc.text(`Tipo De Incidencia: ${this.reporte.incidencia}`, 20, 50);
     doc.text(`Alumno: ${this.alumno.name} ${this.alumno.firstname} ${this.alumno.lastname}`, 20, 60);
     doc.text(`Fecha de Emisión: ${this.justificante.issue_date}`, 20, 70);
-    doc.text(`Detalles del incidente: ${this.reporte.description}`, 20, 80);
-    doc.text('Acuerdos y Compromisos:', 20, 90);
 
-    // Ajuste del texto de la descripción para que haga salto de línea si es necesario
+    // Ajuste del texto de la descripción
     const descripcionMaxWidth = 170; // Ancho máximo permitido para la descripción
-    doc.text(`${this.justificante.description}`, 20, 100, { maxWidth: descripcionMaxWidth });
+    let yPosition = 80; // Posición inicial de "Detalles del incidente"
+
+    // Para ajustar el texto y permitir que se haga salto de línea automáticamente
+    const descriptionText = `Detalles del incidente: ${this.reporte.description}`;
+    const descriptionLines = doc.splitTextToSize(descriptionText, descripcionMaxWidth);
+    doc.text(descriptionLines, 20, yPosition);
+
+    // Ajustar la posición vertical (y) para la siguiente sección
+    yPosition += descriptionLines.length * 10; // Asume 10 de altura por línea (ajustar según tamaño de fuente)
+
+    // Acuerdos y compromisos
+    doc.text('Acuerdos y Compromisos:', 20, yPosition);
+    yPosition += 10; // Espacio después del título
+
+    // Texto de los acuerdos (similar al texto de la descripción)
+    const acuerdosLines = doc.splitTextToSize(this.justificante.description, descripcionMaxWidth);
+    doc.text(acuerdosLines, 20, yPosition);
+
+    yPosition += acuerdosLines.length * 10; // Ajustar la posición vertical
 
     // Espacio para la firma
+    yPosition += 20; // Añadir un poco de espacio antes de la firma
     doc.setLineWidth(0.5);
-    doc.line(20, 130, 80, 130);  // Línea para la firma
-    doc.text('Firma Autoriza', 30, 135);
+    doc.line(20, yPosition, 80, yPosition); // Línea para la firma
+    doc.text('Firma Autoriza', 30, yPosition + 5);
 
     // Espacio para el sello
-    doc.rect(130, 110, 50, 35);  // Rectángulo para el sello
-    doc.text('Sello', 150, 130);
+    doc.rect(130, yPosition - 20, 50, 35);  // Rectángulo para el sello
+    doc.text('Sello', 150, yPosition);
 
     // Añadir imagen en la esquina superior derecha
     const imgData = 'assets/imaje.png'; // Reemplaza con la base64 de la imagen o la URL de la imagen
     const imgWidth = 40; // Ajusta el ancho de la imagen
-    const imgHeight = 50; // Ajusta la altura de la imagen
+    const imgHeight = 45; // Ajusta la altura de la imagen
     const x = doc.internal.pageSize.getWidth() - imgWidth - 10; // Ajuste para la posición X
     const y = 20; // Ajuste para la posición Y
     doc.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
 
     // Descarga el PDF
     const fileName = `justificante_${this.justificante.report_id}_${this.justificante.student_id}.pdf`;
-
     doc.save(fileName);
   }
 
