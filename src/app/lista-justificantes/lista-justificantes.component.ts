@@ -36,11 +36,7 @@ export class ListaJustificantesComponent implements OnInit {
 
   ngOnInit(): void {
     this.justificantes = this.justificanteService.obtenerJustificantes();
-    console.log(this.justificantes);
-
-    this.justificanteService.obtenerJustificantes().subscribe(data => {
-      // console.log(data);
-    })
+    // console.log(this.justificantes);
 
     this.user_id = this.authService.getUserId();
     this.usuarioService.obtenerUsuario(this.user_id).subscribe(data => {
@@ -127,7 +123,7 @@ export class ListaJustificantesComponent implements OnInit {
       // Añadir imagen en la esquina superior derecha
       const imgData = 'assets/imaje.png'; // Reemplaza con la base64 de la imagen o la URL de la imagen
       const imgWidth = 40; // Ajusta el ancho de la imagen
-      const imgHeight = 50; // Ajusta la altura de la imagen
+      const imgHeight = 45; // Ajusta la altura de la imagen
       const x = doc.internal.pageSize.getWidth() - imgWidth - 10; // Ajuste para la posición X
       const y = 20; // Ajuste para la posición Y
       doc.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
@@ -151,7 +147,6 @@ export class ListaJustificantesComponent implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.actualizarReporte();
         this.justificanteService.borrarJustificante(id).subscribe(
           data => {
             Swal.fire(
@@ -172,16 +167,6 @@ export class ListaJustificantesComponent implements OnInit {
           }
         );
       }
-    });
-  }
-
-  actualizarReporte() {
-    this.reporte.justificado = 'NO'
-    this.reporteService.actualizarReporte(this.reporte).subscribe(data => {
-      console.log('Reporte Actualizado', data);
-      // Aquí se muestra el mensaje de éxito solo si la actualización es exitosa
-    }, error => {
-      console.log('Error al actualizar el reporte', error, this.reporte);
     });
   }
 
