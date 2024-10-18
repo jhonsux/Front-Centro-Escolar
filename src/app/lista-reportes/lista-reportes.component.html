@@ -99,7 +99,7 @@
       <thead class="table-success">
         <tr>
           <th scope="col">#</th>
-          <th scope="col">CURP ALUMNO</th>
+          <th scope="col">ALUMNO</th>
           <th scope="col">Incidencia</th>
           <th scope="col">Usuario</th>
           <th scope="col">Descripcion</th>
@@ -112,7 +112,7 @@
       <tbody>
         <tr *ngFor="let reporte of reportes | async">
           <td>{{ reporte.report_id }}</td>
-          <td>{{ reporte.student_id }}</td>
+          <td>{{ reporte.name }} {{reporte.firstname}} {{reporte.lastname}}</td>
           <td>{{ reporte.incidencia }}</td>
           <td>{{ reporte.user }}</td>
           <td>{{ reporte.description }}</td>

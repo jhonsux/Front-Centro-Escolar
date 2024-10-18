@@ -64,14 +64,8 @@ export class UsuariosModelC {
 }
 
 export class ReportesModel {
+  report_id: any;
   constructor (
-    public report_id: string,
-    public student_id: string,
-    public incidencia: string,
-    public user: string,
-    public description: string,
-    public justificado: string,
-    public date: string,
   ) {}
 }
 

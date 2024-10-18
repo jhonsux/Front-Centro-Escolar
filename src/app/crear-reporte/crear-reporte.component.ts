@@ -43,6 +43,7 @@ export class CrearReporteComponent implements OnInit {
 
   ngOnInit(): void {
     this.incidencias = this.incidenciaService.obtenerIncidencias()
+    console.log(this.incidencias)
     this.reporte.user_id = this.authService.getUserId();
     if (this.authService.isTokenExpired()) {
       Swal.fire({
@@ -113,6 +114,7 @@ export class CrearReporteComponent implements OnInit {
   }
 
   crearReporte() {
+    this.reporte.student_id =
     this.reporteService.crearReporte(this.reporte).subscribe(response => {
       Swal.fire({
         icon: 'success',

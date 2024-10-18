@@ -14,8 +14,7 @@ import { UsuarioService } from '../shared/usuario.service';
 })
 export class ListaReportesComponent implements OnInit {
 
-  reportes: Observable<ReportesModel[]> | undefined
-
+  reportes: any = {}
   usuario: any = {}
   user_id = ''
   userRole = '';

@@ -126,7 +126,7 @@ export class CrearAlumnoComponent {
         text: 'El tutor ha sido creado con éxito.',
         showConfirmButton: true
       });
-      this.router.navigate(['/tutores']);  // Retrocede una página en el historial
+      this.router.navigate(['/alumnos']);  // Retrocede una página en el historial
     }, error => {
       console.log('Error Al Crear El Tutor', error);
       Swal.fire({
