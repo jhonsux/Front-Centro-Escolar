@@ -20,6 +20,10 @@ export class IncidenciaService {
     return this.http.get<any[]>(`${this.BASE_URL}/incidencias/buscar?query=${query}`);
   }
 
+  obtenerIncidencias() {
+    return this.http.get<IncidenciasModel[]>(`${this.BASE_URL}/incidencias`);
+  }
+
   crearIncidencia(incidencia: IncidenciasModel) {
     return this.http.post<string>(`${this.BASE_URL}/incidencias/crear`, incidencia)
   }
