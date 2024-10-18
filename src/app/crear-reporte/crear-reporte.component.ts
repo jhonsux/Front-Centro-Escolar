@@ -114,7 +114,6 @@ export class CrearReporteComponent implements OnInit {
   }
 
   crearReporte() {
-    this.reporte.student_id =
     this.reporteService.crearReporte(this.reporte).subscribe(response => {
       Swal.fire({
         icon: 'success',
