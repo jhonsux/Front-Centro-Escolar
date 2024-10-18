@@ -48,8 +48,6 @@ export class CrearAlumnoComponent {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id']
-    this.alumno.parent_id = this.alumno.student_id + 'PA'
-    this.tutor.parent_id = this.alumno.parent_id
     this.alumnoService.obtenerAlumno(this.id).subscribe(data => {
         this.alumno = data[0];
     })
@@ -118,6 +116,7 @@ export class CrearAlumnoComponent {
   }
 
   crearTutor() {
+    this.tutor.parent_id = this.alumno.parent_id
     this.tutorService.crearTutor(this.tutor).subscribe(response => {
       console.log('Tutor Creado', response);
       Swal.fire({
