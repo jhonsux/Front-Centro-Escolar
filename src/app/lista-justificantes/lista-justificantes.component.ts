@@ -154,8 +154,7 @@ export class ListaJustificantesComponent implements OnInit {
               'El Justificante ha sido borrado.',
               'success'
             );
-            // window.location.href = '/alumnos';
-            window.location.reload()
+            this.router.navigate(['/justificantes']);
           },
           error => {
             console.error('Error al borrar el Justificado', error);

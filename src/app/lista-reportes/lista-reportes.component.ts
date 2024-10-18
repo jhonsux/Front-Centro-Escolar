@@ -53,18 +53,6 @@ export class ListaReportesComponent implements OnInit {
     }
   }
 
-  // borrarReporte(id: string) {
-  //   if (confirm('Seguro que deseas BORAR este Reporte?'))
-  //     this.reportesService.borrarReporte(id).subscribe(data => {
-  //       console.log('Reporte borrado')
-  //       alert('Reporte Borrado')
-  //       this.reportes = this.reportesService.obtenerReportes()
-  //     },error => {
-  //     console.error('Error al borrar el Reporte', error);
-  //     alert('Hubo un error al borrar el Reporte');
-  //   }
-  //  );
-  // }
 
   borrarReporte(id: string) {
     Swal.fire({
@@ -85,8 +73,7 @@ export class ListaReportesComponent implements OnInit {
               'El reporte ha sido borrado.',
               'success'
             );
-            // window.location.href = '/alumnos';
-            window.location.reload()
+            this.router.navigate(['/reportes']);
           },
           error => {
             console.error('Error al borrar el Reporte', error);
