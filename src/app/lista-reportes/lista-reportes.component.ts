@@ -73,7 +73,7 @@ export class ListaReportesComponent implements OnInit {
               'El reporte ha sido borrado.',
               'success'
             );
-            this.router.navigate(['/reportes']);
+            window.location.reload();
           },
           error => {
             console.error('Error al borrar el Reporte', error);
