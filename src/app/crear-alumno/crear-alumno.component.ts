@@ -95,6 +95,7 @@ export class CrearAlumnoComponent {
   }
 
   crearAlumno() {
+    this.alumno.parent_id = this.alumno.student_id + 'PA'
     this.alumnoService.crearAlumno(this.alumno).subscribe(response => {
       console.log('Alumno Creado', response);
       Swal.fire({
