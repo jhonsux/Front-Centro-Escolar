@@ -28,3 +28,16 @@ h2 {
   display: flex;
   justify-content: space-between;
 }
+
+.table-responsive-sm {
+  max-height: 410px; /* Ajusta el valor según tu preferencia */
+  overflow-y: auto;  /* Habilita el scroll vertical */
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Hace que el desplazamiento sea suave en móviles */
+}
+
+.table {
+  table-layout: auto; /* Ajusta el ancho de las celdas según el contenido */
+  word-wrap: break-word; /* Asegura que el contenido largo se ajuste */
+}

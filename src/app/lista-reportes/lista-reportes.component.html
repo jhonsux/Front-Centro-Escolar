@@ -92,7 +92,6 @@
 
 <div class="my-4"></div>
 
-<div class="container m-2">
   <h2 class="mb-4 text-center">Lista de Reportes</h2>
   <div class="table-responsive-sm my-4">
     <table class="table table-striped table-hover table-bordered">
@@ -104,7 +103,7 @@
           <th scope="col">Usuario</th>
           <th scope="col">Descripcion</th>
           <th scope="col">Justificado</th>
-          <th scope="col-2">Fecha De Creacion</th>
+          <th scope="col-3">Fecha De Creacion</th>
           <th scope="col" class="text-center">Lista</th>
           <th scope="col" class="text-center">Editar</th>
         </tr>
@@ -122,12 +121,11 @@
             <a href="" class="btn btn-success" [routerLink]="['/alumnos/', reporte.student_id]">Alumno</a>
           </td>
           <td>
-            <!-- <div *ngIf="userRole === 'admin'">
+            <div *ngIf="userRole === 'admin'">
               <button href="/" (click)="borrarReporte(reporte.report_id)" class="btn btn-outline-danger">Borrar</button>
-            </div> -->
+            </div>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
-</div>
