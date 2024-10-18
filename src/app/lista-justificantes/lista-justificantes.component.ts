@@ -76,8 +76,6 @@ export class ListaJustificantesComponent implements OnInit {
       this.alumno = alumno[0];
       this.reporte = reporte[0];
 
-      console.log(alumno)
-
       const doc = new jsPDF();
 
       // Texto predeterminado
@@ -86,42 +84,60 @@ export class ListaJustificantesComponent implements OnInit {
       doc.text('Bachillerato Matutino', 80, 20);
       doc.text('Incidencia de Reporte ', 20, 30);
 
-
       doc.setFontSize(12);
       doc.text('Cento de Trabajo: 21EBH0281Y ', 90, 30);
       doc.text(`Numero De Reporte: # ${justificante.report_id}`, 20, 40);
       doc.text(`Tipo De Incidencia: ${this.reporte.incidencia}`, 20, 50);
       doc.text(`Alumno: ${this.alumno.name} ${this.alumno.firstname} ${this.alumno.lastname}`, 20, 60);
       doc.text(`Fecha de Emisión: ${new Date(justificante.issue_date).toLocaleDateString()}`, 20, 70);
-      doc.text(`Detalles del incidente: ${this.reporte.description}`, 20, 80);
-      doc.text('Acuerdos y Compromisos:', 20, 90);
 
-      // Ajuste del texto de la descripción para que haga salto de línea si es necesario
+      // Ajuste de la descripción
       const descripcionMaxWidth = 170; // Ancho máximo permitido para la descripción
-      doc.text(`${justificante.description}`, 20, 100, { maxWidth: descripcionMaxWidth });
+      let yPosition = 80; // Posición inicial de "Detalles del incidente"
+
+      // Ajustar el texto de la descripción de la incidencia
+      const detallesIncidenteText = `Detalles del incidente: ${this.reporte.description}`;
+      const detallesIncidenteLines = doc.splitTextToSize(detallesIncidenteText, descripcionMaxWidth);
+      doc.text(detallesIncidenteLines, 20, yPosition);
+
+      // Ajustar la posición vertical para la siguiente sección
+      yPosition += detallesIncidenteLines.length * 10; // Altura estimada por línea
+
+      // Acuerdos y Compromisos
+      doc.text('Acuerdos y Compromisos:', 20, yPosition);
+      yPosition += 10; // Espacio después del título
+
+      // Ajustar el texto de los acuerdos y compromisos
+      const acuerdosCompromisosLines = doc.splitTextToSize(justificante.description, descripcionMaxWidth);
+      doc.text(acuerdosCompromisosLines, 20, yPosition);
+
+      // Ajustar la posición vertical
+      yPosition += acuerdosCompromisosLines.length * 10;
 
       // Espacio para la firma
+      yPosition += 20; // Añadir un espacio antes de la firma
       doc.setLineWidth(0.5);
-      doc.line(20, 130, 80, 130);  // Línea para la firma
-      doc.text('Firma Autoriza', 30, 135);
+      doc.line(20, yPosition, 80, yPosition); // Línea para la firma
+      doc.text('Firma Autoriza', 30, yPosition + 5);
 
       // Espacio para el sello
-      doc.rect(130, 120, 50, 35);  // Rectángulo para el sello
-      doc.text('Sello', 150, 135);
+      doc.rect(130, yPosition - 20, 50, 35); // Rectángulo para el sello
+      doc.text('Sello', 150, yPosition);
 
       // Añadir imagen en la esquina superior derecha
-    const imgData = 'assets/imaje.png'; // Reemplaza con la base64 de la imagen o la URL de la imagen
-    const imgWidth = 40; // Ajusta el ancho de la imagen
-    const imgHeight = 50; // Ajusta la altura de la imagen
-    const x = doc.internal.pageSize.getWidth() - imgWidth - 10; // Ajuste para la posición X
-    const y = 20; // Ajuste para la posición Y
-    doc.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
+      const imgData = 'assets/imaje.png'; // Reemplaza con la base64 de la imagen o la URL de la imagen
+      const imgWidth = 40; // Ajusta el ancho de la imagen
+      const imgHeight = 50; // Ajusta la altura de la imagen
+      const x = doc.internal.pageSize.getWidth() - imgWidth - 10; // Ajuste para la posición X
+      const y = 20; // Ajuste para la posición Y
+      doc.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
 
       // Descarga el PDF con el nombre del alumno
       const fileName = `justificante_${this.alumno.name}_${justificante.report_id}.pdf`;
       doc.save(fileName);
     });
   }
+
 
   borrarJustificante(id: string) {
     Swal.fire({
@@ -160,7 +176,6 @@ export class ListaJustificantesComponent implements OnInit {
   }
 
   actualizarReporte() {
-    this.reporte.report_id = this.id
     this.reporte.justificado = 'NO'
     this.reporteService.actualizarReporte(this.reporte).subscribe(data => {
       console.log('Reporte Actualizado', data);

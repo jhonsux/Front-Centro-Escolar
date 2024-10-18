@@ -79,7 +79,7 @@ export class CrearJustificanteComponent implements OnInit {
         text: 'El justificante ha sido creado con éxito.',
         showConfirmButton: true
       });
-      window.location.href = '/Justificantes';// Retrocede una página en el historial
+      window.location.href = '/justificantes';// Retrocede una página en el historial
     }, error => {
       console.log('Error al crear el Justificante', error);
       //alert('Hubo un error al crear el Justificante');
